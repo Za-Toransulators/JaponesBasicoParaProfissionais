@@ -1,0 +1,10 @@
+.licao-geral_dialogo-geral{}
+.licao-geral_vocabulario{}
+.licao-geral_vocabulario{text-decoration:none;}
+.licao-geral_vocabulario_hiragana-katakana{
+											padding-left:2%;
+											padding-right:2%;
+											text-align:justify;
+}
+.licao-geral_vocabulario_romaji{text-align:left;}
+.licao-geral_vocabulario_estrangeiro{text-align:right;}
