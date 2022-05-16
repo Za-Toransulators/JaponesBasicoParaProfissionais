@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lição 4</title>
+		<meta charset="utf8">
+		<style >
+			table{
+				border-collapse: collapse;
+				border: 1px solid #dddddd;
+				margin: 10px;
+				}
+			td,th{
+				border-collapse: collapse;
+				border: 1px solid black;
+				padding: 5px;}
+			.romaji{
+				font-weight: bold;
+				font-style: italic;}
+			article{margin: 10%;}
+			.dialogue_headline{font-weight: bold;}
+			/* Grid
+			–––––––––––––––––––––––––––––––––––––––––––––––––– */
+			.container {
+			  position: relative;
+			  width: 100%;
+			  max-width: 960px;
+			  margin: 0 auto;
+			  padding: 0 20px;
+			  box-sizing: border-box; }
+			.column,
+			.columns {
+			  width: 100%;
+			  float: left;
+			  box-sizing: border-box; }
+
+			/* For devices larger than 400px */
+			@media (min-width: 400px) {
+			  .container {
+				width: 85%;
+				padding: 0; }
+			}
+
+			/* For devices larger than 550px */
+			@media (min-width: 550px) {
+			  .container {
+				width: 80%; }
+			  .column,
+			  .columns {
+				margin-left: 4%; }
+			  .column:first-child,
+			  .columns:first-child {
+				margin-left: 0; }
+
+			  .one.column,
+			  .one.columns                    { width: 4.66666666667%; }
+			  .two.columns                    { width: 13.3333333333%; }
+			  .three.columns                  { width: 22%;            }
+			  .four.columns                   { width: 30.6666666667%; }
+			  .five.columns                   { width: 39.3333333333%; }
+			  .six.columns                    { width: 48%;            }
+			  .seven.columns                  { width: 56.6666666667%; }
+			  .eight.columns                  { width: 65.3333333333%; }
+			  .nine.columns                   { width: 74.0%;          }
+			  .ten.columns                    { width: 82.6666666667%; }
+			  .eleven.columns                 { width: 91.3333333333%; }
+			  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+			  .one-third.column               { width: 30.6666666667%; }
+			  .two-thirds.column              { width: 65.3333333333%; }
+
+			  .one-half.column                { width: 48%; }
+			  /* Offsets */
+			  .offset-by-one.column,
+			  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+			  .offset-by-two.column,
+			  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+			  .offset-by-three.column,
+			  .offset-by-three.columns        { margin-left: 26%;            }
+			  .offset-by-four.column,
+			  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+			  .offset-by-five.column,
+			  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+			  .offset-by-six.column,
+			  .offset-by-six.columns          { margin-left: 52%;            }
+			  .offset-by-seven.column,
+			  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+			  .offset-by-eight.column,
+			  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+			  .offset-by-nine.column,
+			  .offset-by-nine.columns         { margin-left: 78.0%;          }
+			  .offset-by-ten.column,
+			  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+			  .offset-by-eleven.column,
+			  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+			  .offset-by-one-third.column,
+			  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+			  .offset-by-two-thirds.column,
+			  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+			  .offset-by-one-half.column,
+			  .offset-by-one-half.columns     { margin-left: 52%; }
+
+			}
+
+
+			/* Base Styles
+			–––––––––––––––––––––––––––––––––––––––––––––––––– */
+			/* NOTE
+			html is set to 62.5% so that all the REM measurements throughout Skeleton
+			are based on 10px sizing. So basically 1.5rem = 15px :) */
+			html {
+			  font-size: 62.5%; }
+			body {
+			  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+			  line-height: 1.6;
+			  font-weight: 400;
+			  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			  color: #222; }
+
+
+			/* Typography
+			–––––––––––––––––––––––––––––––––––––––––––––––––– */
+			h1, h2, h3, h4, h5, h6 {
+			  margin-top: 0;
+			  margin-bottom: 2rem;
+			  font-weight: 300; }
+			h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+			h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+			h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+			h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+			h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+			h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+			/* Larger than phablet */
+			@media (min-width: 550px) {
+			  h1 { font-size: 5.0rem; }
+			  h2 { font-size: 4.2rem; }
+			  h3 { font-size: 3.6rem; }
+			  h4 { font-size: 3.0rem; }
+			  h5 { font-size: 2.4rem; }
+			  h6 { font-size: 1.5rem; }
+			}
+
+			p {
+			  margin-top: 0; }
+		</style>
+	</head>
+	<body>
+		
+		<article>
+		<h1>Lição 4: A Equipe de Projeto</h1>
+		<!--inicio_dialogo-1-->
+			<h1>Diálogo 1 </h1>
+			<p class="dialogue_headline">Michael está na equipe do projeto liderada pela Sra. Tanaka e acaba de receber uma ordem:</p>
+			<p>
+				<br>Honda:「<ruby>大変<rt>たいへん</rt>ですね。</ruby><ruby>手伝<rt>てつだ</rt>いましょうか。</ruby>」
+				<br>Michael:「いえ、<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です。エクセルを<ruby>使<rt>つか</rt></ruby>いますから。」
+				<br>Honda:「そうですか。じゃ、がんばってください。」
+				<br>Michael:「はい、がんばります 。」					<br>…….
+				<br>Michael:「<ruby>全部<rt>ぜんぶ</rt></ruby>、できました。」
+				<br>Tanaka:「<ruby>速<rt>はや</rt></ruby>いですねえ !」
+			</p>
+			<table>
+				<tr>
+					<td>Romaji</td>
+					<td>Tradução</td>
+				</tr>
+				<tr>
+					<td class="romaji">「Taihen desu nee. Tetsudaimashou ka?」</td>
+					<td>Isso deve ser trabalhoso. Você quer ajuda?</td>
+				</tr>
+				<tr>
+					<td class="romaji">「Ie, daijoubu desu. Ekuseru o tsukaimasu kara.」</td>
+					<td>Não, não precisa. Eu vou utilizar o Excel.</td>
+				</tr>
+				<tr>
+					<td class="romaji">「Sou desu ka. Ja, gannbattekudasai.」</td>
+					<td>Certo, então, boa sorte!</td>
+				</tr>
+				<tr>
+					<td class="romaji">「Hai, gannbarimasu.」</td>
+					<td>Sim, farei o meu melhor! </td>
+				</tr>
+				<tr>
+					<td class="romaji">「Zenbu, dekimashita.」</td>
+					<td>Terminei tudo!</td>
+				</tr>
+				<tr>
+					<td class="romaji">「Hayai desunee.」</td>						
+					<td>Isso foi rápido!</td>
+				</tr>
+			</table>
+	<!-------VOCABULARIO--------->
+		<h1>Vocabulário </h1>
+		<table>
+			<!--Linha 1-->
+			<tr>
+				<td>Japonês</td>
+				<td>Hiragana</td>
+				<td>Romaji</td>
+				<td>Tradução</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<!--Linha 2-->
+			<tr>
+				<td>大変</td>
+				<td>たいへん（な）</td>
+				<td><i class="romaji">taihen(na)</i></td>
+				<td>difícil, desafiante</td>
+			</tr>
+			<!--Linha 3-->
+			<tr>
+				<td>手伝います</td>
+				<td>てつだいます</td>
+				<td><i class="romaji">tetsudaimasu</i></td>
+				<td>ajuda</td>
+			</tr>
+			<!--Linha 4-->
+			<tr>
+				<td>エクセル</td>
+				<td>えくせる</td>
+				<td><i class="romaji">ekuseru</i></td>
+				<td>Microsoft Excel&reg;</td>
+			</tr>
+			<!--Linha 5-->
+			<tr>
+				<td>を</td>
+				<td></td>
+				<td><i class="romaji">o</i></td>
+				<td>Partícula de marcação</td>
+			</tr>
+			<!--Linha 6-->
+			<tr>
+				<td>から	</td>
+				<td></td>
+				<td><i class="romaji">kara</i></td>
+				<td>porque, assim</td>
+			</tr>
+			<!--Linha 7-->
+			<tr>
+				<td>がんばってください</td>
+				<td></td>
+				<td><i class="romaji">ganbatte kudasai</i></td>
+				<td>Boa sorte!</td>
+			</tr>
+			<!--Linha 8-->
+			<tr>
+				<td>がんばります	</td>
+				<td></td>
+				<td><i class="romaji">ganbarimasu</i>	</td>
+				<td>Eu farei o meu melhor</td>
+			</tr>
+			<!--Linha 9-->
+			<tr>
+				<td>全部</td>
+				<td>ぜんぶ</td>
+				<td><i class="romaji">zennbu</i></td>
+				<td>tudo, a coisa toda</td>
+			</tr>
+			<!--Linha 10-->
+			<tr>
+				<td>早(い)</td>
+				<td>はやい</td>
+				<td><i class="romaji">haya(i)</i></td>
+				<td>rápido, cedo</td>
+			</tr>
+			<!--Linha 11-->
+			<tr>
+				<td>遅い</td>
+				<td>おそい</td>
+				<td><i class="romaji">＋osoi</i></td>
+				<td>lento, atrasado</td>
+			</tr>
+			<!--Linha 12-->
+			<tr>
+				<td>どうして</td>
+				<td></td>
+				<td><i class="romaji">＋dou shite</i></td>
+				<td>Por quê?/Qual o problema?</td>
+			</tr>
+			<!--Linha 13-->
+			<tr>
+				<td>なぜ</td>
+				<td></td>
+				<td><i class="romaji">＋naze</i>	</td>
+				<td>Por quê (formal)</td>
+			</tr>
+			<!--Linha 14-->
+			<tr>
+				<td>なんで</td>
+				<td></td>
+				<td><i class="romaji">＋nan de</i>	</td>
+				<td>Por quê (casual)</td>
+			</tr>
+			<!--Linha 15-->
+			<tr>
+				<td>			ワード	</td>
+				<td>わあど	</td>
+				<td><i class="romaji">＋waado</i>	</td>
+				<td>Microsoft Word&reg;</td>
+			</tr>
+			<!--Linha 16-->
+			<tr>
+				<td>アプリ</td>
+				<td>あぷり	</td>
+				<td><i class="romaji">＋apuri</i>	</td>
+				<td>App, Aplicativo</td>
+			</tr>
+			<!--Linha 17-->
+			<tr>
+				<td>インターネット</td>
+				<td>いんたあねっと	</td>
+				<td><i class="romaji">＋intaanetto</i>	</td>
+				<td>Internet</td>
+			</tr>
+			<!--Linha 18-->
+			<tr>
+				<td>ネット</td>
+				<td>ねっと</td>
+				<td><i class="romaji">＋netto</i>		</td>
+				<td>Internet/net</td>
+			</tr>
+			<!--Linha 19-->
+			<tr>
+				<td>パワーポイント	</td>
+				<td>ぱわあぽいんと	</td>
+				<td><i class="romaji">＋pawaapointo</i></td>
+				<td>PowerPoint</td>
+			</tr>
+			<!--Linha 20-->
+			<tr>
+				<td>ファイル	</td>
+				<td>ふぁいる	</td>
+				<td><i class="romaji">＋fairu</i>	</td>
+				<td>Arquivo/File</td>
+			</tr>
+			<!--Linha 21-->
+			<tr>
+				<td>Wi-Fi</td>
+				<td>わいふぁい	</td>
+				<td><i class="romaji">+waifai</i>	</td>
+				<td>Wi-Fi</td>
+			</tr>				
+		</table>
+
+<!-------NOTAS DE GRAMATICA--------->
+		<h1>Notas de Grámatica</h1>
+			<h2>4-1-1 <i class="romaji">~mashou</i><br>-Uma sugestão ou oferecer-se para fazer algo.</h2>
+			<p>	A forma <i class="romaji">~mashou</i> é feita alterando-se <i class="romaji">~masu</i> para <i class="romaji">~mashou</i>. Um verbo na forma ~mashou é usado para sugerir ou ofertar algo e significa "Vamos fazer isto?","Que tal se fizermos aquilo?" ou "Por quê não fazemos isso?".</p>
+			<h4>Exemplo:</h4>
+				<table>
+					<tr>
+						<td><i class="romaji">「Kaerimashou.」</i></td>
+						<td>Vamos para casa.</td>
+					</tr>
+					<tr>
+						<td><i class="romaji">「Tetsudaimashou ka?」</i></td>
+						<td>Gostaria de ajuda?</td>
+					</tr>
+				</table>
+			<p>Embora o orador seja sempre incluso como o executor da ação, o mesmo pode não ocorrer com o destinário, dependendo do contexto.</p>	
+				<h4>Exemplo:</h4>
+				<table>
+					<tr>
+						<td class="romaji">「Ekuseru o tsukai mashou.」</td>
+						<td>"Vamos usar o Excel." ou "Por favor, utilize o Excel."</td>
+					</tr>
+				</table>
+			<h4>Agora, como você responde aos seguintes pedidos?</h4>
+			<p>• Quando oferece-se algo para fazer:</p>
+			<table>
+					<tr>
+						<td>Aceitar</td>
+						<td class="empty_cell"></td>
+						<td class="romaji">「Sou shimashou.」</td>
+						<td>Vamos fazer isso.</td>
+					</tr>
+					<tr>
+						<td>Discordar educadamente</td>
+						<td class="empty_cell"></td>
+						<td class="romaji">「Iya, chotto….」</td>
+						<td>Não, não precisa...</td>
+					</tr>
+			</table>
+			<p>• Quando alguém se oferece para fazer algo por você:</p>
+			<table>
+					<tr>
+						<td>Para aceitar</td>
+						<td class="empty_cell"></td>
+						<td class="romaji">「Hai, onegai-shimasu.」</td>
+						<td>Sim, por favor.</td>
+					</tr>
+					<tr>
+						<td>Para recusar</td>
+						<td class="empty_cell"></td>
+						<td class="romaji">「Ie, daijoubu desu.」</td>
+						<td>Não precisa, mas muito obrigado.</td>
+					</tr>
+			</table>			
+			<p>Observe que a forma de pergunta <i class="romaji">~mashouka</i> normalmente tem uma entonação descendente,  a qual torna essa pergunta mais educada do que apenas dizer <i class="romaji">~mashou</i>, pois o destinatário pode recusá-la sem receio.</p>
+			<p>Verbos como <i class="romaji">~arimasu</i>, <i class="romaji">~dekimasu</i> e <i class="romaji">~wakarimasu</i> não ocorrem na forma <i class="romaji">~mashou</i> porque todos eles indicam algo além do controle do destinatário.</p>
+<!-------------------------Chapter412------------------------->
+		<h1>4-1-2 Partícula <i class="romaji">O</i> <br>-Marcador do Objeto</h1>
+			<p>Cada sentença Japonesa tem um assunto, embora nem sempre seja explicitamente declarado.</p>
+			<p>Por outro lado, a ocorrência de um objeto é mais limitada. Isso ocorre apenas com certos verbos (verbos transitivos, explicados mais tarde) e geralmente não ocorre em um adjetivo ou sentença substantiva. Na Lição 1, foi explicado que o objeto do verbo é colocado antes do verbo com ou sem partículas <i class="romaji">wa</i> (contraste) ou <i class="romaji">mo</i> (adiçaõ). Nesta lição, a partícula <i class="romaji">o</i>i> é adicionada. Considere o seguinte.</p>
+			<table>
+				<tr>
+					<td>「<i class="romaji">Kore wa tabemasu.</i></td>
+					<td>Isso, eu vou comer (enquanto eu não vou comer isso).</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Kore mo tabemasu.</i></td>
+					<td>Eu vou comer isso, também.</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Kore o tabemasu.</i></td>
+					<td>É isso que vou comer.</td>
+				</tr>
+			</table>
+			<p>
+			Em todas esssas sentenças, <i class="romaji">kore</i> é o objeto do verbo <i class="romaji">tabemasu</i>. Quando o objeto é marcado pela 
+			partícula <i class="romaji">o</i>, o foco está neste item e neste item apenas como aquele que você come. 
+			Portanto, a última sentença acima é normalmente a resposta para a pergunta ‘o que você vai comer.’
+			</p>
+			<p>
+			Dependo do contexto, o que está focado pode ser 1) o o-objeto marcado com o sozinho ou 2) 
+			a sentença inteira, que apresenta novas informações que ainda não foram mencionados na conversa. 
+			Uma situação muito comum para 1) é combinação com palavras interrogativas (o quê, quem, qual, etc.) 
+			As palavras interrogativas são inerentemente focadas e, portanto, seguidas pela partícula <i class="romaji">o</i> (não <i class="romaji">wa</i> ou <i class="romaji">mo</i>.) 
+			Similarmente, em uma pergunta sim-não, o objeto, quando focalizado, é marcado pela partícula <i class="romaji">o</i>.
+			</p>
+			<p><b>1) O substantivo do objeto é focalizado.</b></p>
+			<table>
+				<tr>
+					<td><i class="romaji">Dore o tabemasu ka</i></td>
+					<td>Qual você vai comer?</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Kore desu.</i></td>
+					<td>É isso.</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Kore o tabemasu..</i></td>
+					<td>Eu vou comer isso. (Este é o que vou comer.)</td>
+				</tr>				
+			</table>
+			<p>
+			Agora vamos ver como as pergutas sim-não são respondidas quando o objeto 
+			errado é apresentado. A seguir estão duas respostas típicas.
+			</p>
+			
+			<table>
+				<tr>
+					<td><i class="romaji">Pasokon o tsukaimasu ka.</i></td>
+					<td>É um laptop que você usa?</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Iya, pasokon ja nai desu. Sumaho desu.</i></td>
+					<td>Não, não é um laptop. É um smartphone (que eu uso.)</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Iya, pasokon wa tsukaimasen. Sumaho o tsukaimasu.</i></td>
+					<td>Não, eu não uso um laptop. Eu uso um smartphone.</td>
+				</tr>
+			</table>
+			<p>
+			Observe que, na segunda resposta, <i class="romaji">pasokon</i> pega a partícula <i class="romaji">wa</i>, enquanto <i class="romaji">sumaho</i> pega a partícula <i class="romaji">o</i>. 
+			Isso ocorre porque <i class="romaji">sumaho</i> é o item em foco que está sendo apresentado de novo. Por outro lado, 
+			<i class="romaji">pasokon</i> já foi mencionado e a partícula <i class="romaji">wa</i> aqui indica que <i class="romaji">pasokon</i> está em contraste com <i class="romaji">sumaho</i>.
+			</p>
+			<p><b>2) A sentença inteira apresenta novas informações.</b></p>
+			<p>
+			Por exemplo, no diálogo acima, o fato de Michael usar o Excel é uma informação nova e 
+			explica por que ele não precisa de ajuda. Aqui estão mais exemplos desse tipo.
+			</p>
+			
+			<table>
+				<tr>
+					<td><i class="romaji">Dekakemasen ka?</i></td>
+					<td>Você não vai sair?</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Iya, nihongo o benkyou-shimasu.</i></td>
+					<td>Não, vou estudar Japonês.</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Purezen desu yo.</i></td>
+					<td>É uma apresentação.</td>
+				</tr>
+				<tr>
+					<td><i class="romaji">Ja, pawaapointo o tsukurimashou.</i></td>	
+					<td>Bem, então vamos fazer PPT.</td>
+				</tr>
+			</table>			
+
+		<h1>4-1-3 Razão + Kara</h1>
+			<p>A partícula de cláusula <i class="romaji">kara</i> conecta duas sentenças para formar uma. Na sequência de /Sentença A <i class="romaji"></i>kara, Sentença B/, Sentença A representa a causa e a Sentença B o efeito.</p>			
+			<table>
+				<tr>
+					<td class="romaji">Takai desu kara, kaimasen.</td>
+					<td>Porque é caro, não vou comprá-lo.</td>
+				</tr>
+				<tr>
+					<td class="romaji">Wakarimasen kara kikimasu.</td>
+					<td>Porque eu não entendo, vou perguntar.</td>
+				</tr>
+			</table>				
+				<p>Sentença B pode ser deixada sem dizer quando é entendida a partir do contexto.</p>
+			<table>
+				<tr>
+					<td class="romaji">Ikimasen ka.</td>
+					<td>Você não vai?</td>
+				</tr>
+				<tr>
+					<td class="romaji">Ee, ame desu kara.</td>
+					<td>Certo, porque está chovendo.</td>
+				</tr>
+			</table>
+			<p>The clause particles <i class="romaji">kara</i> and <i class="romaji">kedo</i> are opposites of each other. Compare the following.</p>
+			<table>
+				<tr>
+					<td class="romaji">Takai desu kara, kaimasen.</td>
+					<td>It’s expensive, so I’ll not buy it.</td>
+				</tr>
+				<tr>
+					<td i class="romaji">Takai desu kedo, kaimasu.</td>
+					<td>It’s expensive, but I’ll buy it.</td>
+				</tr>
+			</table>
+			<p>There are three Japanese words for ‘why.’ <i class="romaji">Dou shite</i> is most common, <i class="romaji">naze</i> more formal, and <i class="romaji">nan de</i> is casual. <i class="romaji">Desu ka</i> can directly follow them if the rest of the sentence is understood from the context.</p>
+			<table>
+				<tr>
+					<td class="romaji">Dou shite kaimasen ka?</td>
+					<td>Por que você não compra?</td>
+				</tr>
+				<tr>
+					<td class="romaji">Dou shite desu ka?</td>
+					<td>Porque é (que você não compra)?</td>
+				</tr>
+			</table>
+			
+			
+
+		<!-------TREINOS E EXERCICIOS--------->
+		<h1>Treinos e Exercícios</h1>
+				<p>A. Ouça o áudio. Após as duas primeiras trocas de modelos, responda a cada sugestão.</p>
+
+				<table>
+					<tr>
+						<td>Sugestão:</td>
+						<td>Resposta:</td>
+					</tr>
+					<tr>
+						<td><ruby>手伝い<rt>てつだ</rt>ますか。</ruby></td>
+						<td><ruby>もちろんです。いつ手伝い<rt>てつだ</rt>ましょうか。</ruby></td>
+					</tr>
+					<tr>
+						<td>Tetsudaimasu ka</td>
+						<td>Mochiron desu. Itsu tetsudaimashou ka.</td>
+					</tr>
+					<tr>
+						<td>Vais ajudar?</td>
+						<td>É claro. Quando devo ajudar?</td>
+					</tr>
+				</table>	
+				
+				<table>
+					<tr>
+						<td>Sugestão:</td>
+						<td>Resposta:</td>
+					</tr>
+					<tr>
+						<td>しますか。</td>
+						<td>もちろんです。いつしましょうか。</td>
+					</tr>
+					<tr>
+						<td>Shimasu ka.	</td>
+						<td>Mochiron desu. Itsu shimashou ka.	</td>
+					</tr>					
+					<tr>
+						<td>Você vai fazer isso?	</td>
+						<td>É claro. Quando devo fazer isso?</td>
+					</tr>				
+				</table>				
+			<h2>B.</h2>	
+				<table>
+					<tr>
+						<td>Sugestão:</td>
+						<td>Resposta:</td>
+					</tr>
+					<tr>
+						<td>アプリ、いますか。</td>
+						<td>はい、このアプリを<ruby>使<rt>つか</rt></ruby>います。</td>
+					</tr>
+					<tr>
+						<td>Apuri, tsukaimasu ka?		</td>
+						<td>Hai, kono apuri o tsukaimasu.	</td>
+					</tr>					
+					<tr>
+						<td>Você usa aplicativos?	</td>
+						<td>Sim, eu uso este aplicativo.</td>
+					</tr>				
+				</table>				
+
+				<table>
+					<tr>
+						<td>Sugestão:</td>
+						<td>Resposta:</td>
+					</tr>
+					<tr>
+						<td>テレビ、<ruby>買<rt>か</rt></ruby>いますか。</td>
+						<td>はい、このテレビを<ruby>買<rt>か</rt></ruby>います。</td>
+					</tr>
+					<tr>
+						<td>Terebi, kaimasu ka?		</td>
+						<td>Hai, kono terebi o kaimasu.		</td>
+					</tr>					
+					<tr>
+						<td>Você vai comprar uma TV?	</td>
+						<td>Sim, vou comprar esta TV.</td>
+					</tr>				
+				</table>	
+							
+				<h2>C.</h2>
+				<table>
+					<tr>
+						<td>Sugestão:</td>
+						<td>Resposta:</td>
+					</tr>
+					<tr>
+						<td>あれ、<ruby>高<rt>たか</rt></ruby>いですか 	</td>
+						<td>はい、<ruby>高<rt>たか</rt></ruby>いですから、<ruby>買<rt>か</rt></ruby>いません. 		 </td>
+					</tr>
+					<tr>
+						<td>Are, takai desu ka??		</td>
+						<td>Hai, takai desu kara, kaimasen.	.		</td>
+					</tr>					
+					<tr>
+						<td>Isso é caro?	</td>
+						<td>Certo. É caro, então não vou comprá-lo.</td>
+					</tr>				
+				</table>		
+
+				<table>
+					<tr>
+						<td>Sugestão:</td>
+						<td>Resposta:</td>
+					</tr>
+					<tr>
+						<td>あれ、<ruby>使<rt>つか </rt></ruby>いませんか。</td>
+						<td>はい、<ruby>使<rt>つか </rt></ruby>いませんから、<ruby>買<rt>か</rt></ruby>いません。</td>
+					</tr>
+					<tr>
+						<td>Are, tsukaimasen ka?		</td>
+						<td>Hai, tukaimasen kara, kaimasen. .	.		</td>
+					</tr>					
+					<tr>
+						<td>Você não usa isso??	</td>
+						<td>Certo. Eu não uso, então não vou comprar.</td>
+					</tr>				
+				</table>		
+			
+
+				<!------>
+				<p>D. Responda em Japonês.</p>
+					<p>Foi perguntado se você está ocupado hoje.</p>
+					<ol>
+						<li>Sim, porque vou fazer minha lição de casa.</li>
+						<li>É claro. Porque vou praticar Japonês.</li>
+						<li>Por quê? Hoje é Domingo, então não tenho trabalho.</li>
+						<li>Sim, porque vou copier os arquivos do meu computador antigo.</li>
+						<li>Sim, porque vou fazer slides para um apresentação do PowerPoint.</li>
+					</ol>
+					<p>Você foi convidado a ajudar a marcar uma reunião para seu grupo. Faça as seguintes perguntas ao seu supervisor:</p>
+					<ol>
+						<li>Qual sala devemos usar?</li>
+						<li>Devo anotar os nomes de todos?</li>
+						<li>A quem devo ajudar?</li>
+						<li>Devo usar este novo aplicativo?</li>
+						<li>Quando devo enviar o arquivo por e-mail?</li>
+					</ol>	
+				<p>E. Desempenhe essas funções em Japonês com um parceiro.</p>
+					<ol>
+						<li>Um colega de trabalho está sobrecarregado de trabalho. a) Ofereça-se para ajudar. b) Deseje sorte a ele.</li>
+						<li>Em um restaurante, pergunta a Sra. Honda o que ela vai beber.</li>
+						<li>Foi solicitado que você enviasse um arquivo por e-email. Pergunte qual arquivo enviar por e-email.</li>
+						<li>Em um restaurante, você pediu há um tempo. Mencione aos seus companheiros que está demorando muito. Chame a atenção de um garçom e pergunte se já está pronto.</li>
+						<li>Pergunte um ao outro o que você faz no seu dia de folga. Responder. (Por exemplo, ler livros; assistir TV; praticar esportes como tênis, futebol; escrever entradas de blog; fazer cookies; praticar Ioga)</li>
+					</ol>
+				<h1>Diálogo 2</h1>
+					<p>A equipe trabalhou muito durante toda a manhã.</p>
+						<p>	Tanaka: みなさん、すこし<ruby>休<rt>やす</rt></ruby>みましょう。</p>
+						<p>	Michael: じゃ、お<ruby>茶<rt>ちゃ</rt></ruby>、<ruby>入<rt>い</rt></ruby>れましょうか。</p>
+						<p>	Honda:<ruby>私<rt>わたし</rt></ruby> が<ruby>入<rt>い</rt></ruby>れますよ。</p>
+						<p>	Michael:じゃ、<ruby>手伝<rt>てつだ</rt></ruby>います。</p>
+						<p>As bebidas foram trazidas.</p>
+						<p>	Michael: <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>何<rt>なに</rt></ruby>、がいいですか。</p>
+						<p>	Tanaka: <ruby>私<rt>わたし</rt></ruby> はコーヒーをお<ruby>願<rt>ねが</rt></ruby>いします。ああ、おいしいですねえ！</p>
+<!---Romaji do dialogo 2							
+<br>Ja, ocha, iremashou ka.	
+<br>Watashi ga iremasu yo.
+<br>Minasan, sukoshi yasumimashou.
+<br>Então, vamos fazer chá?
+<br>Watashi wa koohii o onegai-shimasu.	
+<br>Aa, oishii desu nee!
+<br>Ja, tetsudaimasu.	
+-->
+<!---Traducao do capitulo 2
+<br>Pessoal, vamos fazer uma pausa.
+<br>Eu vou fazer isso.
+<br>Vou tomar um café, por favor.
+<br>Ahh, como é delicioso!
+<br>Tanaka-san wa nani ga ii desu ka?	
+<br>O que você gostaria, Sra. Tanaka?
+<br>Pois bem, vou ajudar.
+
+-->
+<!-------VOCABULARIO--------->
+				<h1>Vocabulário </h1>
+				
+			<table>
+				<!--Linha 1-->
+				<tr>
+					<td>Japonês</td>
+					<td>Hiragana</td>
+					<td>Romaji</td>
+					<td>Tradução</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<!--Linha 2-->
+				<tr>
+					<td>少し	</td>
+					<td>すこし	</td>
+					<td><i class="romaji">sukoshi	</i></td>
+					<td>um pouco </td>
+				</tr>
+				<!--Linha 3-->
+				<tr>
+					<td>お茶	</td>
+					<td>おちゃ	</td>
+					<td><i class="romaji">ocha</i></td>
+					<td>chá, chá verde		</td>
+				</tr>
+				<!--Linha 4-->
+				<tr>
+					<td>エクセル</td>
+					<td>えくせる</td>
+					<td><i class="romaji">ekuseru</i></td>
+					<td>(Microsoft) Excel</td>
+				</tr>
+				<!--Linha 5-->
+				<tr>
+					<td>を</td>
+					<td></td>
+					<td><i class="romaji">ga</i></td>
+					<td>sujeito marcado partícula</td>
+				</tr>
+				<!--Linha 6-->
+				<tr>
+					<td>入れます	</td>
+					<td>いれます	</td>
+					<td><i class="romaji">iremasu</i></td>
+					<td>faço (chá, café), coloque em</td>
+				</tr>
+				<!--Linha 7-->
+				<tr>
+					<td>田中	</td>
+					<td>たなか	</td>
+					<td><i class="romaji">Tanaka</i></td>
+					<td>Tanaka (sobrenome)</td>
+				</tr>
+				<!--Linha 8-->
+				<tr>
+					<td>コーヒー		</td>
+					<td></td>
+					<td><i class="romaji">koohii</i>	</td>
+					<td>café/coffee</td>
+				</tr>
+				<!--Linha 9-->
+				<tr>
+					<td>		</td>
+					<td>おいしい</td>
+					<td><i class="romaji">oishii	</i></td>
+					<td>delicioso, gostoso</td>
+				</tr>
+				<!--Linha 10-->
+				<tr>
+					<td>		</td>
+					<td>まずい</td>
+					<td><i class="romaji">＋mazui</i></td>
+					<td>não é gostoso</td>
+				</tr>
+				<!--Linha 11-->
+				<tr>
+					<td>紅茶	</td>
+					<td>こうちゃ	</td>
+					<td><i class="romaji">＋koucha	</i></td>
+					<td>chá preto</td>
+				</tr>
+				<!--Linha 12-->
+				<tr>
+					<td>水</td>
+					<td>みず	</td>
+					<td><i class="romaji">＋mizu</i></td>
+					<td>água fria</td>
+				</tr>
+				<!--Linha 13-->
+				<tr>
+					<td></td>
+					<td>ジュース		</td>
+					<td><i class="romaji">＋juusu	</i>	</td>
+					<td>suco</td>
+				</tr>
+				<!--Linha 14-->
+				<tr>
+					<td>牛乳	</td>
+					<td>ぎゅうにゅう	</td>
+					<td><i class="romaji">＋gyuunyuu	</i>	</td>
+					<td>leite</td>
+				</tr>
+				<!--Linha 15-->
+				<tr>
+					<td>お菓子	</td>
+					<td>おかし	</td>
+					<td><i class="romaji">＋okashi	</i>	</td>
+					<td>lanches, doces</td>
+				</tr>
+				<!--Linha 16-->
+				<tr>
+					<td>スイーツ	</td>
+					<td>すいいつ	</td>
+					<td><i class="romaji">＋suiitsu	</i>	</td>
+					<td>doces/sweets</td>
+				</tr>
+				<!--Linha 17-->
+				<tr>
+					<td>パン		</td>
+					<td>	</td>
+					<td><i class="romaji">＋pan</i>	</td>
+					<td>pão</td>
+				</tr>
+				<!--Linha 18-->
+				<tr>
+					<td>ケーキ		</td>
+					<td>ねっと</td>
+					<td><i class="romaji">＋keeki	</i>		</td>
+					<td>bolo/cake</td>
+				</tr>
+				<!--Linha 19-->
+				<tr>
+					<td>クッキー			</td>
+					<td>	</td>
+					<td><i class="romaji">＋kukkii	</i></td>
+					<td>biscoito</td>
+				</tr>
+				<!--Linha 20-->
+				<tr>
+					<td>果物		</td>
+					<td>くだもの		</td>
+					<td><i class="romaji">＋kudamono	</i>	</td>
+					<td>fruta</td>
+				</tr>
+				<!--Linha 21-->
+				<tr>
+					<td></td>
+					<td>りんご		</td>
+					<td><i class="romaji">＋ringo</i>	</td>
+					<td>maçã</td>
+				</tr>
+				<tr>
+					<td>果物		</td>
+					<td>みかん		</td>
+					<td><i class="romaji">＋mikan	</i>	</td>
+					<td>tangerina</td>
+				</tr>
+				<tr>
+					<td>果物		</td>
+					<td>いちご</td>
+					<td><i class="romaji">＋ichigo				</i>	</td>
+					<td>morango</td>
+				</tr>
+			</table>
+					<!-------NOTAS DE GRAMATICA--------->
+					<h1>Notas de Grámatica</h1>
+						<h1>4-2-1 Partícula <i class="romaji">Ga</i> marcando o sujeito</h1>
+					<p>Lembre-se de que o sujeito de uma sentença pode ser colocada na frente de um verbo, adjetivo ou substantivo + <i class="romaji">desu</i> em Japonês falado sem nenhuma partícula ou com as partículas <i class="romaji">wa</i> ou <i class="romaji">mo</i>. Nesta lição, a partícula <i class="romaji">ga</i> é adicionada.</p>
+					
+					<table>
+						<tr>
+							<td><i class="romaji">Kono apaato, takai desu.</i></td>
+							<td>Este apartamento é caro</td>
+						</tr>
+						<tr>
+							<td><i class="romaji">Kono apaato wa takai desu.</i></td>
+							<td>Este apartamento é caro (enquanto outros podem não).</td>
+						</tr>
+						<tr>
+							<td><i class="romaji">Kono apaato mo takai desu.</i> </td>
+							<td>Este apartamento também é caro.</td>
+						</tr>
+						<tr>
+							<td><i class="romaji">Kono apaato ga takai desu. </i></td>
+							<td>É esse apartamento que é caro.</td>
+						</tr>
+					</table>
+					<p>A partícula <i class="romaji">ga</i> segue o substantivo sujeito em situação onde 1) foco especial é colocado no assunto, ou 2) A sentença inteira apresenta novas informações. Situação 1) normalmente ocorre em combinação com palavras interrogativas. Ao responder a essas perguntas, é comum usar a partícula <i class="romaji">ga</i> com o substantivo, ou apenas fornecer o substantivo + <i class="romaji">desu</i>.</p>
+					<p>1) O substantivo sujeito é focalizado.</p>
+						<p><i class="romaji">Dare ga, ikimasu ka.</i>				Quem está indo?<br><i class="romaji">-Honda-san desu.</i>				É Honda-san (quem está indo).<br><i class="romaji">-Honda-san ga ikimasu.</i>			Sra. Honda está indo.</p>
+					<p>No Diálogo 2 acima, quando Michael sugere fazer chá, A Sra. Honda diz <i class="romaji">Watashi ga iremasu</i> ‘Vou fazer um chá (não o Michael ou ninguém)’ colocando o foco nela como A pessoa que faz o chá. Outro exemplo semelhante no diálogo é quando Michael pergunta Sra. Tanaka deseja. Michael diz <i class="romaji">nani ga ii desu ka</i> colocando um foco em ‘o que’.</p>
+						<p>2) A sentença inteira apresenta novas informações.</p>
+							<p><i class="romaji">Kaerimasu ka</i>? 						Você está indo para casa?</p>
+							<p>-<i class="romaji">Hai, shukudai ga arimasu kara</i>. 				Sim, porque tenho dever de casa.</p>
+							<p>Aqui, ter o dever de casa é uma informação nova e explica por que o palestrante está indo para casa. Não é apenas o <i class="romaji">shukudai</i> que está focado aqui ( ‘é lição de casa que eu tenho’) mas sim a sentença como um todo é focada ( ‘é que eu tenho lição de casas.’)</p>
+					<!-------TREINOS E EXERCICIOS--------->
+					<p>Treinos e Exercício</p>
+						<p>A. </p>
+							
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>ちょっと<ruby>休<rt>やす</rt></ruby>みませんか。</td>
+							<td>そうですね。<ruby>皆<rt>みな</rt></ruby>さん、<ruby>休みましょう<rt>やす</rt></ruby>。</td>
+							<td><ruby>帰<rt>かえ</rt></ruby>りませんか。</td>
+							<td>そうですね。<ruby>皆<rt>みな</rt></ruby>さん、<ruby>帰<rt>かえ</rt></ruby>りましょう。</td>
+						</tr>
+						<tr>
+							<td>Chotto yasumimasen ka.</td>
+							<td>Sou desu ne. Minasan yasumimashou.</td>
+							<td>Kaerimasen ka.</td>
+							<td>Sou desu ne. Minasan, kaerimashou. </td>
+						</tr>
+						<tr>
+							<td>Você gostaria de fazer uma pausa?</td>
+							<td>Certo. Pessoal, vamos fazer uma pausa.</td>
+							<td>Você gostaria de ir para casa?</td>
+							<td>Certo. Pessoal, vamos para casa.</td>
+						</tr>
+					</table>						
+					<p>B. </p>
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>ちょっと<ruby>休<rt>やす</rt></ruby>みませんか。</td>
+							<td>そうですね。<ruby>皆<rt>みな</rt></ruby>さん、<ruby>休みましょう<rt>やす</rt></ruby>。</td>
+							<td><ruby>帰<rt>かえ</rt></ruby>りませんか。</td>
+							<td>そうですね。<ruby>皆<rt>みな</rt></ruby>さん、<ruby>帰<rt>かえ</rt></ruby>りましょう。</td>
+						</tr>
+						<tr>
+							<td>Chotto yasumimasen ka.</td>
+							<td>Sou desu ne. Minasan yasumimashou.</td>
+							<td>Kaerimasen ka.</td>
+							<td>Sou desu ne. Minasan, kaerimashou. </td>
+						</tr>
+						<tr>
+							<td>Você gostaria de fazer uma pausa?</td>
+							<td>Certo. Pessoal, vamos fazer uma pausa.</td>
+							<td>Você gostaria de ir para casa?</td>
+							<td>Certo. Pessoal, vamos para casa.</td>
+						</tr>
+					</table>						
+					
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>コーヒーいや<ruby>紅茶<rt>こうちゃ</rt>、</ruby><ruby>飲<rt>の</rt></ruby>みますか</td>
+							<td>いや、コーヒーも<ruby>紅茶<rt>こうちゃ</rt></ruby>も<ruby>飲<rt>の</rt></ruby>みません。</td>
+							<td><ruby>帰<rt>かえ</rt></ruby>りませんか。</td>
+							<td>そうですね。<ruby>皆<rt>みな</rt></ruby>さん、<ruby>帰<rt>かえ</rt></ruby>りましょう。</td>
+						</tr>
+						<tr>
+							<td>Koohii ya koucha, nomimasu ka?</td>
+							<td>Iya, ko-hi-mokoucha mo nomimasen.</td>
+						</tr>
+						<tr>
+							<td>Você bebe coisas como café e chá?</td>
+							<td>Não, eu não bebo café nem chá.</td>
+						</tr>
+					</table>					
+
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>ケーキやクッキー、<ruby>食<rt>た</rt></ruby>べますか。</td>
+							<td>いや、ケーキもクッキーも<ruby>食<rt>た</rt></ruby>べません。</td>
+						</tr>
+						<tr>
+							<td>Keei ya kukkii, tabemasu ka?	</td>
+							<td>Iya, keeki mo kukkii mo tabemasen. </td>
+						</tr>
+						<tr>
+							<td>Você come coisas como bolo e biscoitos?</td>
+							<td>Não, eu não como bolo e nem biscoito.</td>
+						</tr>
+					</table>					
+					<p>C. </p>
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>ケーキですか。</td>
+							<td>はい、ケーキを<ruby>買<rt>か</rt></ruby>います。</td>
+						</tr>
+						<tr>
+							<td>Keeki desu ka?	</td>
+							<td>Hai, ke-ki wo kaimasu.</td>
+						</tr>
+						<tr>
+							<td>É bolo? 	</td>
+							<td>Sim, vou comprar um bolo.</td>
+						</tr>
+					</table>					
+
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td><ruby>本田<rt>ほ ん だ </rt></ruby>さんですか。</td>
+							<td>はい、ケーキを<ruby>買<rt>か</rt></ruby>います。</td>
+						</tr>
+						<tr>
+							<td>Honda –san desu ka.</td>
+							<td>Hai, ke-ki wo kaimasu.</td>
+						</tr>
+						<tr>
+							<td>É a Sra. Honda?</td>
+							<td>Sim, vou comprar um bolo.</td>
+						</tr>
+					</table>					
+
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>はい、<ruby>本田<rt>ほ ん だ</rt></ruby>さんが<ruby>買<rt>か</rt></ruby>います。</td>
+							<td>はい、ケーキを<ruby>買<rt>か</rt></ruby>います。</td>
+						</tr>
+						<tr>
+							<td>Hai, Honda-san ga kaimasu. </td>
+							<td>Hai, ke-ki wo kaimasu.</td>
+						</tr>
+						<tr>
+							<td>Sim, a Sra. Honda vai comprá-lo.</td>
+							<td>Sim, vou comprar um bolo.</td>
+						</tr>
+					</table>					
+							
+							<p>D. Diga em Japonês.</p>
+							<p>Ofereça-se para fazer o seguinte para o seu grupo.</p>
+								<ol>
+									<li>Devo fazer chá?</li>
+									<li>Devo fazer café, chá preto, etc.?</li>
+									<li>Devo comprar maçãs e laranjas (tangerinas)?</li>
+									<li>Devo comprar muita água porque está calor hoje</li>
+									<li>Devo fazer um grande bolo de morango?</li>
+								</ol>
+							<p>Você tem perguntas sobre o projeto. Pergunte à Sra. Tanaka.</p>
+								<ol>
+									<li>Quem escreve a programação?</li>
+									<li>Quando a programação estará pronta?</li>
+									<li>O que devo fazer?</li>
+									<li>Que trabalho será mais difíil?</li>
+									<li>A quem devo ajudar?</li>
+								</ol>
+							<p>E. Desempenhe essas funções em Japonês com um parceiro.</p>
+								<ol>
+									<li>Seu grupo tem trabalhado muito duro. Sugira que 1) Você faz uma pausa, 2) vá para casa porque é tarde, 3) continue se esforçando um pouco mais.</li>
+									<li>Seu supervisor não comparecerá à reunião. Ofereça-se para ir no lugar dela.</li>
+									<li>O e-mail que você estava esperando finalmente chegou. Anuncie isso a seus colegas de trabalho.</li>
+									<li>Seu grupo vai alugar um carro. Pergunte quem vai dirigir.</li>
+									<li>Verifique o menu da cafeteria e pergunte um ao outro o que você vai comer.</li>
+								</ol>
+							<p>Diálogo 3 </p>
+								<p>É quase hora do almoço.</p>
+									<p>	Michael: <ruby>お昼<rt>ひる</rt>はお弁当<rt>べんとう</rt>ですか。</ruby> </p>
+									<p>	Honda:  <ruby>いえ、外食<rt>がいしょく</rt>です。	</ruby>	
+									<p>Michael e a Sra. Honda estão decidindo por um restaurante.</p>
+									<p>	Honda: <ruby>何<rt>なに</rt>が好き<rt>す</rt>ですか。</ruby> 
+									<p>	Michael:<ruby>僕<rt>ぼく</rt>はラーメンが食<rt>た</rt>べたいですけど。</ruby> 
+									<p>	Honda: <ruby>いいラーメン屋<rt>や</rt>さんが、ありますよ。</ruby> 
+								<p>Em uma loja de Ramen</p>
+									<p>	Honda: <ruby>おはし、大丈夫<rt>だいじょうぶ</rt>ですか。</ruby> 
+									<p>	Michael:もちろんです。 
+									<!-----
+																				<br>Mochiron desu.	
+										<br>É claro.	
+																				<br>Ohashi, daijoubu desu ka?	
+										<br>Você está bem com os pauzinhos?
+										<br>
+																				<br>Ii, raamen-ya-san ga arimasu yo.	
+										<br>Há uma boa loja de ramen.
+																			<br>Boku wa raamen ga tabetai desu kedo… 
+										<br>Eu quero comer ramen, mas….
+																				<br>Nani ga suki desu ka?	
+										<br>Do que você gosta?
+										<br>Ie, gaishoku desu.	
+										<br>Não, eu como fora.
+										<br>Ohiru wa obentou desu ka?	
+										<br>Você almoça Bento?
+
+
+									------>
+					<!-------VOCABULARIO--------->
+					<h1>Vocabulário</h1>
+			<table>
+				<!--Linha 1-->
+				<tr>
+					<td>Palavra</td>
+					<td>Hiragana</td>
+					<td>Romaji</td>
+					<td>Tradução</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<!--Linha 2-->
+				<tr>
+					<!--Word--><td>昼</td>
+					<!--Hiragana--><td>ひる</td>
+					<!--Romaji--><td><i class="romaji">hiru</i></td>
+					<!--Translation--><td>meio-dia, almoço </td>
+				</tr>
+				<!--Linha 3-->
+				<tr>
+					<!--Word--><td>	お弁当</td>
+					<!--Hiragana-->	<td>おべんとう</td>
+					<!--Romaji--><td><i class="romaji">(o)bentou	</i></td>
+					<!--Translation--><td>almoço embalado </td>
+				</tr>
+				<!--Linha 4-->
+				<tr>
+					<!--Word--><td>		外食</td>
+					<!--Hiragana-->	<td>がいしょく</td>
+					<!--Romaji--><td><i class="romaji">gaishoku</i></td>
+					<!--Translation--><td>comer fora </td>
+				</tr>
+				<!--Linha 5-->
+				<tr>
+					<!--Word--><td>	何</td>
+					<!--Hiragana--><td>	なに</td>
+					<!--Romaji--><td><i class="romaji">nani	</i></td>
+					<!--Translation--><td>que </td>
+				</tr>
+				<!--Linha 6-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	が</td>
+					<!--Romaji--><td><i class="romaji">	ga</i></td>
+					<!--Translation-->	<td>Partícula </td>
+				</tr>				
+				<!--Linha 7-->
+				<tr>
+					<!--Word--><td>好き	</td>
+					<!--Hiragana--><td>すき（な）</td>
+					<!--Romaji--><td><i class="romaji">	suki(na)</i></td>
+					<!--Translation-->	<td>gostei, gostar de </td>
+				</tr>				
+				<!--Linha 8-->
+				<tr>
+					<!--Word--><td>		ラーメン</td>
+					<!--Hiragana--><td>	が</td>
+					<!--Romaji--><td><i class="romaji">raamen</i></td>
+					<!--Translation-->	<td>	ramen </td>
+				</tr>				
+				<!--Linha 9-->
+				<tr>
+					<!--Word--><td>		食べたい</td>
+					<!--Hiragana--><td>	たべたい</td>
+					<!--Romaji--><td><i class="romaji">tabetai</i></td>
+					<!--Translation-->	<td>	quer comer </td>
+				</tr>				
+				<!--Linha 10-->
+				<tr>
+					<!--Word--><td>		屋</td>
+					<!--Hiragana--><td>		〜や</td>
+					<!--Romaji--><td><i class="romaji">	~ya</i></td>
+					<!--Translation-->	<td>	loja </td>
+				</tr>				
+				<!--Linha 11-->
+				<tr>
+					<!--Word--><td>			ラーメン屋</td>
+					<!--Hiragana--><td>	ラーメンや</td>
+					<!--Romaji--><td><i class="romaji">raamen-ya</i></td>
+					<!--Translation-->	<td>	loja de ramen </td>
+				</tr>				
+				<!--Linha 12-->
+				<tr>
+					<!--Word--><td>		ラーメン屋さん</td>
+					<!--Hiragana--><td>		ラーメンやさん</td>
+					<!--Romaji--><td><i class="romaji">raamen-ya-san</i></td>
+					<!--Translation-->	<td> loja de ramen (educado) </td>
+				</tr>				
+				<!--Linha 13-->
+				<tr>
+					<!--Word--><td>		お箸</td>
+					<!--Hiragana--><td>		おはし</td>
+					<!--Romaji--><td><i class="romaji">	ohashi</i></td>
+					<!--Translation-->	<td>		pauzinhos </td>
+				</tr>				
+				<!--Linha 14-->
+				<tr>
+					<!--Word--><td>		ご飯</td>
+					<!--Hiragana--><td>		ごはん</td>
+					<!--Romaji--><td><i class="romaji">	＋gohan</i></td>
+					<!--Translation-->			<td>arroz cozido, uma refeição </td>
+				</tr>				
+				<!--Linha 15-->
+				<tr>
+					<!--Word--><td>		昼ご飯</td>
+					<!--Hiragana--><td>		ひるごはん</td>
+					<!--Romaji--><td><i class="romaji">	＋hirugohan</i></td>
+					<!--Translation-->			<td>almoço </td>
+				</tr>				
+				<!--Linha 16-->
+				<tr>
+					<!--Word--><td>		朝</td>
+					<!--Hiragana--><td>		あさ</td>
+					<!--Romaji--><td><i class="romaji">	＋asa</i></td>
+					<!--Translation-->				<td>manhã </td>
+				</tr>				
+				<!--Linha 17-->
+				<tr>
+					<!--Word--><td>		朝ご飯</td>
+					<!--Hiragana--><td>		あさごはん</td>
+					<!--Romaji--><td><i class="romaji">＋asagohan</i></td>
+					<!--Translation-->			<td>café da manhã </td>
+				</tr>				
+				<!--Linha 18-->
+				<tr>
+					<!--Word--><td>		晩</td>
+					<!--Hiragana--><td>		ばん</td>
+					<!--Romaji--><td><i class="romaji">	＋ban</i></td>
+					<!--Translation-->	<td>			noite </td>
+				</tr>				
+				<!--Linha 19-->
+				<tr>
+					<!--Word--><td>		晩ご飯</td>
+					<!--Hiragana--><td>	ばんごはん</td>
+					<!--Romaji--><td><i class="romaji">	＋bangohan</i></td>
+					<!--Translation-->	<td>		jantar </td>
+				</tr>				
+				<!--Linha 20-->
+				<tr>
+					<!--Word--><td>		和食</td>
+					<!--Hiragana--><td>		わしょく</td>
+					<!--Romaji--><td><i class="romaji">	＋washoku</i></td>
+					<!--Translation-->	<td>		comida Japonesa </td>
+				</tr>				
+				<!--Linha 21-->
+				<tr>
+					<!--Word--><td>		洋食</td>
+					<!--Hiragana--><td>		ようしょく</td>
+					<!--Romaji--><td><i class="romaji">	＋youshoku</i></td>
+					<!--Translation-->	<td>		comida Ocidental </td>
+				</tr>				
+				<!--Linha 22-->
+				<tr>
+					<!--Word--><td>		中華</td>
+					<!--Hiragana--><td>	ちゅうか</td>
+					<!--Romaji--><td><i class="romaji">	＋chuuka</i></td>
+					<!--Translation-->	<td>		comida Chinesa </td>
+				</tr>				
+				<!--Linha 23-->
+				<tr>
+					<!--Word--><td>		フレンチ</td>
+					<!--Hiragana--><td>		ふれんち</td>
+					<!--Romaji--><td><i class="romaji">	＋furenchi</i></td>
+					<!--Translation-->	<td>		comida Francesa</td>
+				</tr>				
+				<!--Linha 24-->
+				<tr>
+					<!--Word--><td>		イタリアン</td>
+					<!--Hiragana--><td>		いたりあん</td>
+					<!--Romaji--><td><i class="romaji">	＋itarian</i></td>
+					<!--Translation-->	<td>	Italiana </td>
+				</tr>				
+				<!--Linha 25-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>		きらい（な)</td>
+					<!--Romaji--><td><i class="romaji">	＋kirai(na)</i></td>
+					<!--Translation-->	<td> 	não gostei, odiar </td>
+				</tr>				
+				<!--Linha 26-->
+				<tr>
+					<!--Word--><td>		大好き</td>
+					<!--Hiragana--><td>		だいすき（な）</td>
+					<!--Romaji--><td><i class="romaji">	＋daisuki(na)</i></td>
+					<!--Translation-->	<td>		gusto muito </td>
+				</tr>				
+				<!--Linha 27-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>		だいきらい（な）</td>
+					<!--Romaji--><td><i class="romaji">	＋daikirai(na)</i></td>
+					<!--Translation-->	<td>	não gusto muito, detestar </td>
+				</tr>				
+				<!--Linha 28-->
+				<tr>
+					<!--Word--><td>		定食</td>
+					<!--Hiragana--><td>		ていしょく</td>
+					<!--Romaji--><td><i class="romaji">	teishou</i></td>
+					<!--Translation-->	<td>	definer refeição </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>		うどん</td>
+					<!--Romaji--><td><i class="romaji">	udon</i></td>
+					<!--Translation-->	<td>		 </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	そば</td>
+					<!--Romaji--><td><i class="romaji">	soba</i></td>
+					<!--Translation-->	<td>		soba, macarrão de trigo sarraceno </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>		おにぎり</td>
+					<!--Romaji--><td><i class="romaji">onigiri</i></td>
+					<!--Translation-->	<td>		onigiri </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>		ハンバーガー</td>
+					<!--Romaji--><td><i class="romaji">	hanbaagaa</i></td>
+					<!--Translation-->	<td> 		hamburger</td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		サラダ</td>
+					<!--Hiragana--><td>	が</td>
+					<!--Romaji--><td><i class="romaji">	sarada</i></td>
+					<!--Translation-->	<td>salada </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>		サンド</td>
+					<!--Romaji--><td><i class="romaji">	sando</i></td>
+					<!--Translation-->	<td>		sanduíche</td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		スプーン</td>
+					<!--Hiragana--><td>		すぷうん</td>
+					<!--Romaji--><td><i class="romaji">	supuun</i></td>
+					<!--Translation-->	<td>	colher </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		フォーク</td>
+					<!--Hiragana--><td>		ふぉおく</td>
+					<!--Romaji--><td><i class="romaji">	fooku</i></td>
+					<!--Translation-->	<td>	garfo </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		ナイフ</td>
+					<!--Hiragana--><td>		ないふ</td>
+					<!--Romaji--><td><i class="romaji">	naifu</i></td>
+					<!--Translation-->	<td>	faca </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		お皿</td>
+					<!--Hiragana--><td>		おさら</td>
+					<!--Romaji--><td><i class="romaji">osara</i></td>
+					<!--Translation-->	<td>	prato, travessa</td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		茶碗</td>
+					<!--Hiragana--><td>		ちゃわん</td>
+					<!--Romaji--><td><i class="romaji">	chawan</i></td>
+					<!--Translation-->	<td>	tigela de arroz, xícara de chá</td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		お椀</td>
+					<!--Hiragana--><td>	おわん</td>
+					<!--Romaji--><td><i class="romaji">	owan</i></td>
+					<!--Translation-->	<td>	tigela pequena </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		丼</td>
+					<!--Hiragana--><td>		どんぶり</td>
+					<!--Romaji--><td><i class="romaji">	donburi</i></td>
+					<!--Translation-->	<td>	tigela, tigela de arroz com comida por cima </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>		コップ</td>
+					<!--Hiragana--><td>		こっぷ</td>
+					<!--Romaji--><td><i class="romaji">koppu</i></td>
+					<!--Translation-->	<td>	copo </td>
+				</tr>				
+				<!--Linha 29-->
+				<tr>
+					<!--Word--><td>	カップ	</td>
+					<!--Hiragana--><td>		かっぷ</td>
+					<!--Romaji--><td><i class="romaji">	kappu</i></td>
+					<!--Translation-->	<td>	xícara</td>
+				</tr>				
+			</table>
+						<p>~ya se refere ao estabelimento commercial que vende o item ao qual ~ya está vinculado. (pan-ya, obentou-ya, hon-ya, etc.)</p>
+						<p>Itens Adicionais para o Almoço </p>
+						<p>Talheres </p>
+
+					<!-------NOTAS DE GRAMATICA--------->
+					<h1>Notas de Gramática</h1>
+						<p>4-3-1 Estruturas de Sujeito-Duplo</p>
+							<p>Uma sentença em Japonês pode ter mais de um sujeito na frase. Isso é chamado de sentença sujeito-duplo.</p>								
+								<table>
+									<tr>
+										<td>Maikeru-san wa [ohashi daijoubu desu.]</td>
+										<td>Michael está bem com os pauzinhos.</td>
+									</tr>
+								</table>								
+								<p> </p>
+							<p>Na sentença acima, ohashi é o sujeito da sentença entre colchetes, e Maikeru-san é o sujeito de toda a sentença. Em outras palavras, a sentença entre colchetes ‘pauzinhos estão bem’ é um atributo ou uma descrição sobre Michael. Similarmente, nos exemplos acima, as sentenças entre colchetes são fatos sobre os substantivos precedentes.</p>
+								<table>
+									<tr>
+										<td>Furansu wa [keeki ga oisii desu]</td>
+										<td>A França tem um bom bolo.</td>
+									</tr>
+									<tr>
+										<td>Honda-san wa [eigo wa jouzu desu] kedo…</td>
+										<td>Honda-san é bom em Inglês, mas….</td>
+									</tr>
+									<tr>
+										<td>Dare ga [eigo ga dekimasu] ka.</td>
+										<td>Quem pode falar em Inglês?</td>
+									</tr>									
+									<tr>
+										<td>Watashi mo [sushi ga suki desu] kedo</td>
+										<td>Eu gusto de sushi, também.</td>
+									</tr>
+								</table>
+							<p>Como mostrado acima, ambos os substantivos subjetivos (dentro e fora dos colchetes) pode levar as partículas ga, wa, mo, ou nenhuma partícula. Dependo de qual partícula é usada, há uma mudança de significado (ga=nova informação, wa=contraste, mo=adição, ou nenhuma partícula= neutra).</p>
+							<p>Nota especial deve ser dada a substantivos como suki ‘gosto’, e kirai ‘eu não gosto’, e os verbos como wakarimasu ‘compreender’, dekimasu ‘pode fazer’, arimasu ‘tenho’, e irimasu ‘precisar.’ Tudo isso indica um estado em vez de uma ação em Japonês. Portanto, ao contrário de suas traduções para o Inglês, eles não aceitam um objeto. O que você gosta, o que você entende, etc., pode ser marcado pelas partículas ga, wa, ou mo, ou nenhuma partícula, mas não pela partícula o.</p>
+								<table>
+									<tr>
+										<td>Honda-san wa sushi ga suki desu.</td>
+										<td>A Sra. Honda gosta de sushi.</td>
+										<td>Watashi wa terebi wa irimasen.</td>
+										<td>Eu não preciso de uma TV.</td>
+										<td>Kono daigaku wa arabiago no jyugyou mo arimasu</td>
+										<td>Está universidade tem aula de árabe, também. </td>
+									</tr>
+								</table>
+							<p>A propósito, não existe uma estrutura de objeto-duplo em Japonês. Uau!</p>
+						<p>4-3-2 Verbo caule + tai ‘quero fazer x’</p>
+							<p>Tabetai desu significa ‘Eu quero comer’. Para fazer a forma tai de um verbo, substituir~masu com ~tai desu.</p>
+							<table>
+								<tr>
+									<td>Tabemasu →	Tabetai desu</td>
+									<td>Eu quero comer.</td>
+								</tr>
+								<tr>
+									<td>Mimasu → Mitai desu</td>
+									<td>Eu quero ve-lo.</td>
+								</tr>
+							</table>
+						<p>A forma A~tai é um adjetivo. Todas as suas formas seguem os padrões de adjetivos.</p>
+						<p>Tabela 14. Formas afirmativas, negativas, passadas e não-passadas do verbo tabemasu.</p>
+			<table>
+				<!--Head-->
+				<tr>
+					<td>Afirmativo</td>
+					<td>Negativo</td>
+					<td>Não-passado</td>
+					<td>Passado</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<!--Row 2-->
+				<tr>
+					<!--Word--><td><i class="romaji">tabetai desu	</i></td>
+					<!--Hiragana--><td><i class="romaji">Tabetaku nai desu | Tabetaku arimasen</i></td>
+					<!--Romaji--><td><i class="romaji">Tabetaku nakatta desu | Tabetaku arimasen deshita	</i></td>
+					<!--Translation--><td><i class="romaji">tabetakatta desu </i></td>
+				</tr>
+			</table>
+				<p>X-tai desu é normalmente usado para expresser o desejo do falante (‘Eu quero …’) e perguntar o desejo do destinatário (‘Você quer…?’) mas não o desejo de uma terceira pessoa (‘Ele quer ….’) Descrever os desejos de outras pessoas será discutido mais tarde.</p>
+				<p>Com a forma ~tai, o objeto do verbo pode ser marcado pela partícula ga ou o (conversão ga/o). Ambas as sentenças a seguir são possíveis e signficam ‘Eu quero estudar Japonês.’</p>
+			<table>
+				<tr>
+					<td>Nihongo o benkyou-shitai desu.</td>
+					<td>O que quero fazer é estudar Japonês.</td>
+				</tr>
+				<tr>
+					<td>Nihongo ga benkyou-shitai desu</td>
+					<td>O que eu quero estudar é Japonês.</td>
+				</tr>
+			</table>
+				<p>Ao contrário das formas em Inglês, como ‘você deseja’ ou ‘você gostaria de’, que podem ser usados para convidar alguém para fazer algo, os formulários ~tai geralmente não são usados como convites ou sugestão em Japonês. Para convites e sugestão, as perguntas negativas são mais comumente usada.</p>
+			<table>
+				<tr>
+					<td>Tabemasen ka?.</td>
+					<td>Você gostaria de come-lo? (Convite).</td>
+				</tr>
+				<tr>
+					<td>Tabetai desu ka?</td>
+					<td>Você quer come-lo?	(Pergunta)</td>
+				</tr>
+			</table>
+				<p>Os verbos que não ocorrem na forma ~mashou também não ocorrem na forma ~tai Este incluem wakarimasu, irimasu, arimasu e dekimasu.</p>
+					<!-------VOCABULARIO--------->
+					<h1>Treinos e Exercício</h1>
+						<p>A.</p>
+						
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>買います。か</td>
+							<td>何を買いますか。なに	か</td>
+							<td>いります</td>
+							<td>何がいりますか。なに</td>
+						</tr>
+						<tr>
+							<td>Kaimasu.</td>
+							<td>Nani o kaimasu ka.</td>
+							<td>Irimasu.</td>
+							<td>Nani ga irimasu ka </td>
+						</tr>
+						<tr>
+							<td>Eu vou comprar</td>
+							<td>O que você vai comprar?.</td>
+							<td>Eu vou precisar disso.</td>
+							<td>O que você vai precisar?.</td>
+						</tr>
+					</table>												
+						<p>B. </p>
+
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>うどん、よく食べますねえ。た</td>
+							<td>ええ、 私 はうどんが好きですから。わたし す</td>
+							<td>ゲーム、よくしますねえ。</td>
+							<td>ええ、 私 はゲームが好きですから。わたし す</td>
+						</tr>
+						<tr>
+							<td>Udon, yoku tabemasu nee.</td>
+							<td>Ee, watashi wa udon ga suki desu kara. </td>
+							<td>Geimu, yoku shimasu nee.</td>
+							<td>Ee, watashi wa geimu ga suki desu kara.	 </td>
+						</tr>
+						<tr>
+							<td>Você come muit udon, você não!</td>
+							<td>Sim, porque eu gusto de udon..</td>
+							<td>.	Você joga muitos jogos, você não!</td>
+							<td>Sim, porque gosto de jogos</td>
+						</tr>
+					</table>		
+					<p>C. </p>										
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>全部、見たいですか.ぜ ん ぶ  み</td>
+							<td>いえ、これは見たいですけど、あれは見たくないです．み	み</td>
+							<td>ゲーム、よくしますねえ。</td>
+							<td>全部,	読みたいですか．ぜ ん ぶ	よ</td>
+							<td>いえ、これは読みたいですけど、あれは読みたくないです。よ	よ</td>
+						</tr>
+						<tr>
+							<td>Zenbu mitai desu ka</td>
+							<td>Ie, kore wa mitai desu kedo. </td>
+							<td>are wa mitaku nai desu..</td>
+							<td>Zenbu yomitai desu ka? .	 </td>
+							<td>Ie, kore wa yomitai desu kedo,are wa yomitaku nai desu</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Você quer ver tudo?</td>
+							<td>Não, eu quero ver isso,..</td>
+							<td>mas eu não quero ver isso.</td>
+							<td>Do you want to read all?</td>
+							<td>Não, eu quero ler isto,mas eu não quero ver isso.</td>
+						</tr>
+					</table>
+						<p>D. Diga em Japonês.</p>
+							<p>Perguntaram se você gosta de comida Japonesa.</p>
+								<p>1. Sim, eu gusto disso. Meu favorito é ramen.</p>
+								<p>2. Bem, eu não odeio isso, mas meu favorito é Chinês.</p>
+								<p>3. É claro que eu amo isso. Eu quero comer todos os dias.</p>
+							<p>Perguntaram a você por que vai a um determinado resutarante com tanta frequência.</p>
+								<p>4. Porque o ramen deles é famoso.</p>
+								<p>5. Porque eles têm Wi-Fi.</p>
+								<p>6. Porque eu quero cada comida boa de estilo Ocidental.</p>
+							<p>Um colega de trabalho perguntou o que você deseja fazer neste fim de semana.</p>
+								<p>7. Eu gostaria de jogar o novo jogo.</p>
+								<p>8. Eu gostaria de fazer compras.</p>
+								<p>9. Eu gostaria de estudar porque haverá um exame.</p>
+								<p>10. Eu gostaria de limpar meu apartamento. Eu gostaria de lavar roupa, também.</p>
+						<p>E. Desempenhe essas funções em Japonês com um parceiro.</p>
+							<p>1. Em um restaurante, perguntaram se você precisa de garfo. Declare que não; você prefere pauzinhos.</p>
+							<p>2. Foi perguntado se você cozinha muito. Você faz o café da manhã, mas compra bento, um sanduíche, etc. para almoço. Para o jantar, você come muito fora.</p>
+							<p>3. Pergunte a um motorista de taxi se há uma boa loja de ramen.</p>
+							<p>4. A Sra. Honda convidou você para seu restaurante favorito. Descubra o que (prato) é bom no resutarante.</p>
+							<p>5. Pergunte uns aos outros sobre suas frutas, livros, esportes e aulas favoritas.</p>
+					<p>Diálogo 4 </p>
+						<p>Os colegas de trabalho saem para tomar uma bebida após um longo dia.</p>
+							<p>Garçonete：ご注文は？<ruby>ちゅうもん</ruby></p>
+							<p>Tanaka：とりあえず、ビール、三本ください。<ruby>さんぼん</ruby></p>
+							<p>Michael：それから、さしみを二つと焼き鳥一つ、お願いします。<ruby>ふた	や	 とりひと		ねが</ruby></p>
+<!---						
+						Go-chuumon wa?	Posso anotar seu pedido?
+						Toriaezu, biiru, san-bon kudasai.             Para começar, três cervejas, por favor
+						Sore kara sashimi o futa-tsu to yakitori o hito-tsu onegai-shimasu.
+						E dois pedios de sashimi e um pedido de yakitorti, por favor.
+Kyou wa otsukare-sama deshita.Obrigado por todo o seu trabalho árduo hoje
+Ja, kanpai!	Bem, saúde!
+Kanpai!	Saúde!
+-->
+						<p>Cerveja foi servida para todos.</p>
+							<p>Tanaka: 今日はお疲れさまでした。じゃ、乾杯！き ょ う	つか.<ruby>かんぱい</ruby></p>
+							<p>Todo mundo：乾杯！</p>
+					<!-------VOCABULARIO--------->
+					<h1>Vocabulário</h1> 
+			<table>
+				<!--Head-->
+				<tr>
+					<td>Word</td>
+					<td>Hiragana</td>
+					<td>Romaji</td>
+					<td>Meaning</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<!--Row 2-->
+				<tr>
+					<!--Word--><td>		注文</td>
+					<!--Hiragana--><td>	ちゅうもん</td>
+					<!--Romaji--><td><i class="romaji">	chuumon</i></td>
+					<!--Translation--><td> 	pedido (em um restaurante)</td>
+				</tr>
+				<!--Row 3-->
+				<tr>
+					<!--Word--><td>	ご注文</td>
+					<!--Hiragana--><td>	ごちゅうもん</td>
+					<!--Romaji--><td><i class="romaji">	gochuumon</i></td>
+					<!--Translation--><td> 	pedido (em um restaurante)(educado)</td>
+				</tr>
+				<!--Row 4-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	とりあえず</td>
+					<!--Romaji--><td><i class="romaji">	toriaezu</i></td>
+					<!--Translation--><td>		primeiro, por enquanto </td>
+				</tr>
+				<!--Row 5-->
+				<tr>
+					<!--Word--><td>		ビール</td>
+					<!--Hiragana--><td>	びいる</td>
+					<!--Romaji--><td><i class="romaji">biiru	</i></td>
+					<!--Translation--><td>	cerveja </td>
+				</tr>
+				<!--Row 6-->
+				<tr>
+					<!--Word--><td>		三本</td>
+					<!--Hiragana--><td>	さんぼん</td>
+					<!--Romaji--><td><i class="romaji">san-bon	</i></td>
+					<!--Translation--><td> 	três garrafas, Ver 4-1-1</td>
+				</tr>				
+				<!--Row 7-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	それから</td>
+					<!--Romaji--><td><i class="romaji">	sorekara</i></td>
+					<!--Translation--><td> 		e, então</td>
+				</tr>				
+				<!--Row 8-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	さしみ</td>
+					<!--Romaji--><td><i class="romaji">	sashimi</i></td>
+					<!--Translation--><td> 		sashimi</td>
+				</tr>				
+				<!--Row 9-->
+				<tr>
+					<!--Word--><td>		二つ</td>
+					<!--Hiragana--><td>	ふたつ</td>
+					<!--Romaji--><td><i class="romaji">futa-tsu	</i></td>
+					<!--Translation--><td> três itens Ver 4-1-1</td>
+				</tr>				
+				<!--Row 10-->
+				<tr>
+					<!--Word--><td>		焼き鳥</td>
+					<!--Hiragana--><td>	やきとり</td>
+					<!--Romaji--><td><i class="romaji">	yokitori</i></td>
+					<!--Translation--><td> 	frango churrasco no espeto</td>
+				</tr>				
+				<!--Row 11-->
+				<tr>
+					<!--Word--><td>		一つ</td>
+					<!--Hiragana--><td>	ひとつ</td>
+					<!--Romaji--><td><i class="romaji">	hito-tsu</i></td>
+					<!--Translation--><td> 	um item Ver 4-1-1</td>
+				</tr>				
+				<!--Row 12-->
+				<tr>
+					<!--Word--><td>		乾杯</td>
+					<!--Hiragana--><td>	かんぱい</td>
+					<!--Romaji--><td><i class="romaji">	kanpai</i></td>
+					<!--Translation--><td> 	saúde, uma torrada</td>
+				</tr>				
+				<!--Row 13-->
+				<tr>
+					<!--Word--><td>		注文します</td>
+					<!--Hiragana--><td>	ちゅうもんします</td>
+					<!--Romaji--><td><i class="romaji">	＋chuumon-shimasu</i></td>
+					<!--Translation--><td> 	fazer um pedido</td>
+				</tr>				
+				<!--Row 14-->
+				<tr>
+					<!--Word--><td>		料理</td>
+					<!--Hiragana--><td>	りょうり</td>
+					<!--Romaji--><td><i class="romaji">	＋ryouri</i></td>
+					<!--Translation--><td> 	cozinha, cozinhando</td>
+				</tr>				
+				<!--Row 15-->
+				<tr>
+					<!--Word--><td>		メニュー</td>
+					<!--Hiragana--><td>	めにゅう</td>
+					<!--Romaji--><td><i class="romaji">＋menyuu	</i></td>
+					<!--Translation--><td>	cardápio </td>
+				</tr>				
+				<!--Row 16-->
+				<tr>
+					<!--Word--><td>		寿司</td>
+					<!--Hiragana--><td>	すし</td>
+					<!--Romaji--><td><i class="romaji">＋sushi	</i></td>
+					<!--Translation--><td> 	sushi</td>
+				</tr>				
+				<!--Row 17-->
+				<tr>
+					<!--Word--><td>		天ぷら</td>
+					<!--Hiragana--><td>てんぷら</td>
+					<!--Romaji--><td><i class="romaji">	＋tempura</i></td>
+					<!--Translation--><td> 	tempura</td>
+				</tr>				
+				<!--Row 18-->
+				<tr>
+					<!--Word--><td>		食べ物</td>
+					<!--Hiragana--><td>	たべもの</td>
+					<!--Romaji--><td><i class="romaji">＋tabemono	</i></td>
+					<!--Translation--><td> 	comida</td>
+				</tr>				
+				<!--Row 19-->
+				<tr>
+					<!--Word--><td>	飲み物	</td>
+					<!--Hiragana--><td>	のみもの</td>
+					<!--Romaji--><td><i class="romaji">＋nomimono	</i></td>
+					<!--Translation--><td> 	bebida(s)</td>
+				</tr>				
+				<!--Row 20-->
+				<tr>
+					<!--Word--><td>		生</td>
+					<!--Hiragana--><td>	なま</td>
+					<!--Romaji--><td><i class="romaji">	＋nama</i></td>
+					<!--Translation--><td>	chope, cru </td>
+				</tr>				
+				<!--Row 21-->
+				<tr>
+					<!--Word--><td>	ワイン	</td>
+					<!--Hiragana--><td>	わいん</td>
+					<!--Romaji--><td><i class="romaji">＋wain	</i></td>
+					<!--Translation--><td>	vinho </td>
+				</tr>				
+				<!--Row 22-->
+				<tr>
+					<!--Word--><td>	酒	</td>
+					<!--Hiragana--><td>	さけ</td>
+					<!--Romaji--><td><i class="romaji">＋sake	</i></td>
+					<!--Translation--><td>	saquê </td>
+				</tr>				
+				<!--Row 23-->
+				<tr>
+					<!--Word--><td>		ウーロン茶</td>
+					<!--Hiragana--><td>	ううろんちゃ</td>
+					<!--Romaji--><td><i class="romaji">＋uuron-cha	</i></td>
+					<!--Translation--><td> 	chá oolong</td>
+				</tr>				
+				<!--Row 24-->
+				<tr>
+					<!--Word--><td>		肉</td>
+					<!--Hiragana--><td>	にく</td>
+					<!--Romaji--><td><i class="romaji">＋niku	</i></td>
+					<!--Translation--><td>	carne </td>
+				</tr>				
+				<!--Row 25-->
+				<tr>
+					<!--Word--><td>		魚</td>
+					<!--Hiragana--><td>	さかな</td>
+					<!--Romaji--><td><i class="romaji">	＋sakana</i></td>
+					<!--Translation--><td>	peixe </td>
+				</tr>				
+				<!--Row 26-->
+				<tr>
+					<!--Word--><td>		野菜</td>
+					<!--Hiragana--><td>	やさい</td>
+					<!--Romaji--><td><i class="romaji">＋yasai	</i></td>
+					<!--Translation--><td> 	vegetais</td>
+				</tr>				
+				<p>Alimentos e Condimentos Adicionais </p>
+				<!--Row 27-->
+				<tr>
+					<!--Word--><td>		みそ汁</td>
+					<!--Hiragana--><td>	みそしる</td>
+					<!--Romaji--><td><i class="romaji">	misoshiru</i></td>
+					<!--Translation--><td>	sopa missô </td>
+				</tr>				
+				<!--Row 28-->
+				<tr>
+					<!--Word--><td>		卵、玉子</td>
+					<!--Hiragana--><td>たまご</td>
+					<!--Romaji--><td><i class="romaji">	tamago</i></td>
+					<!--Translation--><td> 	ovo</td>
+				</tr>				
+				<!--Row 29-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	のり</td>
+					<!--Romaji--><td><i class="romaji">nori	</i></td>
+					<!--Translation--><td> algas marinhas</td>
+				</tr>				
+				<!--Row 30-->
+				<tr>
+					<!--Word--><td>	</td>
+					<!--Hiragana--><td>	えび</td>
+					<!--Romaji--><td><i class="romaji">	ebi</i></td>
+					<!--Translation--><td> 		camarão</td>
+				</tr>				
+				<!--Row 31-->
+				<tr>
+					<!--Word--><td>		鮭</td>
+					<!--Hiragana--><td>	さけ</td>
+					<!--Romaji--><td><i class="romaji">	sake</i></td>
+					<!--Translation--><td>	salmão </td>
+				</tr>				
+				<!--Row 32-->
+				<tr>
+					<!--Word--><td>		牛肉</td>
+					<!--Hiragana--><td>	ぎゅうにく</td>
+					<!--Romaji--><td><i class="romaji">gyuuniku	</i></td>
+					<!--Translation--><td> 	carne</td>
+				</tr>				
+				<!--Row 33-->
+				<tr>
+					<!--Word--><td>	豚肉</td>
+					<!--Hiragana--><td>ぶたにく</td>
+					<!--Romaji--><td><i class="romaji">	butaniku</i></td>
+					<!--Translation--><td>carne de porco </td>			
+				</tr>				
+				<!--Row 34-->
+				<tr>
+					<!--Word--><td>		鶏肉</td>
+					<!--Hiragana--><td>とりにく</td>
+					<!--Romaji--><td><i class="romaji">	toriniku</i></td>		
+					<!--Translation--><td> frango</td>
+				</tr>				
+				<!--Row 35-->
+				<tr>
+					<!--Word--><td>	ステーキ</td>
+					<!--Hiragana--><td>すていき</td>
+					<!--Romaji--><td><i class="romaji">	suteeki</i></td>			
+					<!--Translation--><td> bife</td>
+				</tr>				
+				<!--Row 36-->
+				<tr>
+					<!--Word--><td>	カレー	</td>		
+					<!--Hiragana--><td>かれ</td>
+					<!--Romaji--><td><i class="romaji">karee	</i></td>
+					<!--Translation--><td> curry</td>
+				</tr>				
+				<!--Row 37-->
+				<tr>
+					<!--Word--><td>	焼き肉</td>
+					<!--Hiragana--><td>やきにく</td>
+					<!--Romaji--><td><i class="romaji">	yakiniku</i></td>
+					<!--Translation--><td> yakiniku (carne coreana para churrasco)</td>			
+				</tr>				
+				<!--Row 38-->
+				<tr>
+					<!--Word--><td>	焼きそば	</td>
+					<!--Hiragana--><td>やきそば	</td>
+					<!--Romaji--><td><i class="romaji">	yakisoba	</i></td>
+					<!--Translation--><td> yakisoba (macarrão frito)</td>
+				</tr>				
+				<!--Row 39-->
+				<tr>
+					<!--Word--><td>	醤油</td>
+					<!--Hiragana--><td>しょうゆ</td>
+					<!--Romaji--><td><i class="romaji">shouyu	</i></td>
+					<!--Translation--><td>molho de soja </td>			
+				</tr>				
+				<!--Row 40-->
+				<tr>
+					<!--Word--><td>	味噌</td>
+					<!--Hiragana--><td>みそ</td>
+					<!--Romaji--><td><i class="romaji">	</i></td>
+					<!--Translation--><td> missô</td>miso			
+				</tr>				
+
+				<!--Row 41-->
+				<tr>
+					<!--Word--><td>塩		</td>
+					<!--Hiragana--><td>	しお</td>
+					<!--Romaji--><td><i class="romaji">shio	</i></td>
+					<!--Translation--><td> sal</td>	
+				</tr>						
+				<!--Row 42-->
+				<tr>
+					<!--Word--><td>	胡椒	</td>
+					<!--Hiragana--><td>こしょう</td>
+					<!--Romaji--><td><i class="romaji">koshou	</i></td>
+					<!--Translation--><td> pimenta</td>satou	さとう	砂糖	açúcar			
+				</tr>				
+				<!--Row 43-->
+				<tr>
+					<!--Word--><td>	砂糖</td>
+					<!--Hiragana--><td>さとう</td>
+					<!--Romaji--><td><i class="romaji">satou	</i></td>
+					<!--Translation--><td> açúcar</td>						
+				</tr>				
+
+			</table>
+					<h1>Notas de Grámatica</h1>
+						<p>4-4-1 Mais Classificadores: ~hon、~tsu</p>
+							<p>Na Lição 3, foi explicado que, ao contar coisas em Japonês, números são combinados com classificadores específico que são convencionalmente usados para os substantivos que estão sendo contados. Adicionamos dois classificadores, ~hon、~tsu, nesta lição</p>
+							<p>O classificador ~hon é usado para contar objetos cilíndricos longos, como garrafas, canetas, gurda-chuva, bananas, etc. O classificador ~tsu é o classificador mais genérico, que pode ser usado para itens tangíveis e intangíveis, como opiniões, reuniões, etc. Também é usado para itens que não possuem um classificador especial. Portanto, pode ser uma escolha segura quando você não tem Certeza de qual classificador usar.</p>
+							<p>Existem dois sistemas numéricos em Japonês: um de origem Chinesa, que foi apresentado na Lição 3, e outro sistema de origem Japonesa. Este ultimo só sobe até o número dez.</p>
+							
+							<p class="romaji">1 hito, 2 futa, 3 mi, 4 yo, 5 itsu, 6 mu, 7 nana, 8 ya, 9 kokono, 10 tou</p>
+							
+							<p>O classificador <i class="romaji"></i>~hon é combinado com numerais Chineses. Observe que as alternativas para <i class="romaji"></i>~hon são <i class="romaji"></i>~pon (para 1, 6, 8, 10) e <i class="romaji"></i>~bon (para 3 e quantos). O classificador <i class="romaji"></i>~tsu é combinado com numerais Japoneses e para quantidades acima de dez numerais Chineses sem um classificador são usados: <i class="romaji"></i>juu-ichi, <i class="romaji"></i>juu-ni, <i class="romaji"></i>juu-san, etc.</p>
+
+					<h1>Tabela 15. Expressões de <i class="romaji"></i>-tsu e <i class="romaji"></i>-hon/pon/bon quando combinados com os números 1-11, bem como um número desconhecido.</h1>
+					<table>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>1</td>
+							<td>2 </td>
+							<td>3 </td>
+							<td>3 </td>
+							<td>5 </td>
+							<td>6 </td>
+							<td>7 </td>
+							<td>8 </td>
+							<td>9 </td>
+							<td>10 </td>
+							<td>11 </td>
+							<td>Quantos?</td>
+						</tr>
+						<tr>
+							<td>~tsu </td>
+							<td></td>
+							<td class="romaji">hito-tsu	一つ</td>
+							<td class="romaji">futa-tsu	二つ</td>
+							<td class="romaji">mit-tsu	三つ </td>
+							<td class="romaji">yot-tsu	四つ </td>
+							<td class="romaji">itsu-tsu	五つ </td>
+							<td class="romaji">mut-tsu	六つ </td>
+							<td class="romaji">nana-tsu	七つ </td>
+							<td class="romaji">yat-tsu	八つ </td>
+							<td class="romaji">kokono-tsu	九つ </td>
+							<td class="romaji">tou </td>
+							<td class="romaji"> juuippo</td>
+							<td class="romaji">ikutsu/oikutsu いくつ </td>
+						</tr>
+						<tr>
+							<td class="romaji">~hon/pon/bon </td>
+							<td></td>
+							<td class="romaji">ip-pon	一本</td>
+							<td class="romaji">ni-hon	二本</td>
+							<td class="romaji">san-bon	三本 </td>
+							<td class="romaji">yon-hon	四本</td>
+							<td class="romaji">go-hon	五本 </td>
+							<td class="romaji">rop-pon	六本 </td>
+							<td class="romaji">nana-hon	七本 </td>
+							<td class="romaji">hap-pon	八本 </td>
+							<td class="romaji">kyuu-hon	九本</td>
+							<td class="romaji">jup-pon or jip-pon 十 本 </td>
+							<td class="romaji"> juuip-pon	十一本</td>
+							<td class="romaji">nan-bon	何本 </td>
+						</tr>
+					</table>
+					<h1>4-4-2 Expressões de Quantidades</h1>
+						<p>Existem dois tipos de expressões de quantidades em Japonês. Um é composto de um número e classificador (san-bon, hito-tsu, etc.) e a outra é uma expressão de quantidade geral (chotto, suskoshi, takusan, zenbu, minna, etc.) Dentro de uma sentença, ambos geralmente ocorrem logo antes do verbo, adjetivo ou substantivo +desu. Ao contrário do Inglês, o substantive geralmente vem antes da quantidade em Japonês.</p>
+						<table>
+							<tr>
+								<td class="romaji">Biiru, san-bon kudasai.</td>
+								<td>Três (garrafass de) cervejas, por favor.</td>
+							</tr>
+							<tr>
+								<td class="romaji">Sashimi wa hito-tsu 1000-en desu.</td>
+								<td>Um sashimi custa ¥ 1000.</td>
+							</tr>
+							<tr>
+								<td class="romaji">Mizu o sukoshi nomitai desu.	</td>
+								<td>Eu quero beber um pouco d’água.</td>
+							</tr>							
+						</table>
+						<p>Conforme mostrado nos exemplos acima, uma expressão de quantidade é tipicamente marcada pela falta de partícula. Não é seguido pela partícula ga ou o. No entanto, ele pode ser seguido pela partícula wa ou mo. Quando wa segue uma expressão de quantidade, significa ‘pelo menos’ e quando mo segue, isso implica que o número é grande (muito!)</p>
+
+						<table>
+							<tr>
+								<td class="romaji">Mainichi, shukudai ga hito-tsu wa arimasu</td>
+								<td>Tenho pelo menos uma tarefa de HW todos os dias</td>
+							</tr>
+							<tr>
+								<td class="romaji">Obentou o futatsu mo tabemashita.</td>
+								<td>Comi todos os dois bentos.</td>
+							</tr>
+							<tr>
+								<td class="romaji">Mizu o sukoshi nomitai desu.	</td>
+								<td>Eu quero beber um pouco d’água.</td>
+							</tr>							
+						</table>
+						<p>Como vários itens e números são listados em Japonês? Suponha que queremos dizer ‘Três maçãs e quatro larajas, por favor.’ Combine as duas sentenças a seguir em uma.</p>
+
+						<table>
+							<tr>
+								<td class="romaji">Ringo o mit-tsu kudasai.</td>
+								<td>Três maçãs, por favor.</td>
+							</tr>
+							<tr>
+								<td class="romaji">Mikan o yot-tsu kudasai.	</td>
+								<td>Quatro laranjas, por favor.</td>
+							</tr>
+							<tr>
+								<td class="romaji">[Ringo o mit-tsu] to [mikan o yot-tsu] kudasai.	</td>
+								<td>Três maçãs e quatro laranjas, por favor.</td>
+							</tr>							
+						</table>
+						<p>Não há limite de quantas coisas podem ser listadas, mas é raro listar mais de três itens.</p>
+						<table>
+							<tr>
+								<td class="romaji">Onigiri ga mit-tsu to sando ga itsu-tsu, sorekara mizu ga ni-hon arimasu.</td>
+								<td>São três onigiri, cinco sanduíches e duas garrafas de água.</td>
+							</tr>
+						</table>
+					<!-------VOCABULARIO--------->
+					<h1> Treinos e Exercício</h1>
+						<p>A. Ouça o áudio . Após as duas primeiras trocas de modelos, responda a cada sugestão.</p>
+
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td><ruby>五本<rt>ご ほ ん</rt></ruby>ですね。	</td>
+							<td>三<ruby>みっ<rt></rt></ruby>つですね。	</td>
+						</tr>
+						<tr>
+							<td>いえ、<ruby>六本<rt>ろっぽん</rt></ruby>です。</td>
+							<td>いえ、<ruby>四<rt>よっ</rt>つ</ruby>です。</td>
+						</tr>
+					</table>
+
+<!------
+							<p>Sugestão: Go-hon desu ne. Cinco, certo?	Resposta: Ie, rop-pon desu. Não, seis. </p>
+							<p></p>
+							<p>	
+							</p>
+							<p>Sugestão: Mit-tsu desu ne. Três, certo? Resposta: Ie, yot-tsu desu. Não, quatro.</p>
+							<p></p>
+							<p></p>
+--->
+					 	<p>B. </p>
+					<table>
+						<tr>
+							<td>Sugestão:</td>
+							<td>Resposta:</td>
+						</tr>
+						<tr>
+							<td>さしみとビールですか。	</td>
+							<td>はい、さしみを二つとビールを三本、ください。ふた	さんぼん	</td>
+						</tr>
+						<tr>
+							<td>リンゴとみかんですか。</td>
+							<td>はい、リンゴを二つと、みかんを三つください。ふた  みっ</td>
+						</tr>
+					</table>
+<!----
+							<p>Sugestão:  Sashimi to biiru desu ka.	Sashimi e cerveja?	</p>
+							<p></p>
+							<p>Resposta:  Hai, sashimi o futa-tsu to	Sim, dois sashimi e três cervejas, </p>
+							<p>biiru o sdan-bon kudasai.	por favor.</p>
+							<p></p>
+							<p></p>
+							<p>Sugestão: Ringo to mikan desu ka.	Maçãs e laranjas?</p>
+							<p></p>
+							<p>Resposta: Hai, ringo o futa-tsu to	Sim, duas maçãs e três laranjas, </p>
+							<p>Mikan o mit-tsu kudasai.	por favor.</p>
+							<p></p>
+							<p>			</p>
+---->
+						<p>C. Diga em Japonês.</p>
+							<p>Em um restaurante, peça o seguinte:</p>
+						<ol>
+							<li>dois chopes para começar</li>
+							<li>três cervejas e um chá oolong</li>
+							<li>dois chás pretos e um bolo de morango</li>
+							<li>três sashimi, cinco saquê, e dois sucos de laranja</li>
+							<li>duas ordens de peixe de hoje e uma tempura de vegetais. Sem bebidas. Só chá.</li>
+						</ol>
+							<p>D. Desempenhe essas funções em Japonês com um parceiro.</p>
+						<ol>
+							<li>Pergunte à Sra. Honda qual é sua comida favorita</li>
+							<li>Em um restaurante, chame a atenção do garçom e pergunte a) o cardápio, b) mais água.</li>
+							<li>Você foi solicitado a obter os seguintes itens. Descubra quantas são necessárias: cadeiras; lápis;águaengarrafada;bento;guarda-chuva; bananas; maçãs.</li>
+							<li>O projeto acabou. Você quer propor um brinde. Certifique-se de que todos tenham uma bebida, reconheça o trabalho árduo de todos e, em seguida, proponha um brinde.</li>
+							<li> Discuta o que as pessoas geralmente comem no café da manhã, almoço ou jantar no Japão e em seu país de origem. Bebidas?</li>
+						</ol>
+						<h1>Revisão</h1>
+							<h1>Revisão Gramatical</h1>
+								<p>A. Qual é a diferença de significado entre os seguintes? (4-1-1, 4-3-2)</p>
+								<ol>
+									<li class="romaji">Yasumimasen ka</li>
+									<li class="romaji">Yasumimashou</li>
+									<li class="romaji">Yasumimashou ka</li>
+									<li class="romaji">Yasumitai desu ka</li>
+								</ol>
+								<p>B. Qual é a diferença de significado entre o seguinte? (4-1-3)</p>
+								<ol>
+									<li class="romaji">Yasai desu kedo tabemasen.</li>
+									<li class="romaji">Yasai desu kara tabemasen.</li>
+								</ol>
+								<p>C. Dê dois exemplos de classificadores e um exemplo de coisas que cada classificador é usado para contar. (4-4-1)</p>
+								<p>D. Qual é a diferença de significado entre as seguintes sentenças? (4-1-2, 4-2-1)</p>
+								<ol>
+									<li class="romaji">Honda-san o mimashita.</li>
+									<li class="romaji">Honda -san ga mimashita.</li>
+								</ol>
+								<p>E. Qual é a diferença de significado entre as seguintes sentenças? (4-1-2)</p>
+								<ol>
+									<li class="romaji">Wain nomimasu ka.</li>
+									<li class="romaji">Wain wa nomimasu ka.</li>
+									<li class="romaji">Wain mo nomimasu ka.</li>
+									<li class="romaji">Wain o nomimasu ka.</li>
+								</ol>
+								<p>F. Quais são os dois tipos de expressões de quantidade em Japonês? Onde eles normalmente ocorrem em uma sentença? (4-4-2)</p>
+								<p>G. O que é uma sentença sujeito-duplo? Dê exemplos. (4-3-1)</p>
+								<p>H. Como é feita a forma ~tai? O que isso significa? (4-3-2)</p>
+								<p>I. Qual é a forma negativa de tabetai desu? A forma do Passado? A froma negative do Passado? (4-3-2)</p>
+								<p>J. A ordem típica das palavras emu ma sentença em Japonês é a seguinte: (4-1-2, 4-2-1, 4-4-2)</p>
+								<p>Tempo – Sujeito – Objeto – Quantidade – Verbo</p>
+								<p>O gráfico abaixo resume que a partícula escolhe para as diferentes partes (colunas) com as diferentes funções do discurso (linhas). 
+								<p>Com base no gráfico, preste muita atenção às partículas e trate das seguintes situações.</p>	
+<!---conferir o original
+					<h1>Tabela 16. Escolhas de partículas para diferentes funções de discurso</h1>
+						<table>
+							<tr>
+								<td>Tempo</td>
+								<td>Sujeito</td>
+								<td>Objeto</td>
+								<td>Quantidade</td>
+								<td>Neutro</td>
+								<td>Contraste</td>
+								<td>Adição</td>
+								<td>Focado/Novo</td>
+							</tr>
+							<tr>
+								<td>Kinou</td>
+								<td>watashi</td>
+								<td>keeki</td>
+								<td>hiyo-tsu</td>
+								<td>não partícula</td>
+								<td>não partícula</td>
+								<td>não partícula</td>
+								<td>não partícula</td>
+								<td>wa</td>
+								<td>wa</td>
+								<td>wa</td>
+								<td>wa</td>
+								<td>mo</td>
+								<td>mo</td>
+								<td>mo</td>
+								<td>mo</td>
+								<td>não partícula</td>
+								<td>ga</td>
+								<td>o</td>
+								<td>não partícula</td>
+					</table>
+--->
+					<h1>Tabemashita</h1>
+
+						<p>1. Descubra se um colega de trabalho come sushi.</p>
+						<p>2. Você sabe que ele pediu sushi ontem. Descubra se ele terá mais hoje.</p>
+						<p>3. No restaurante, perguntaram a você o que você vai comer. Você gostaria de um pouco de sushi.</p>
+						<p>4. Pergunte à Sra. Honda o que ela vai comer.</p>
+						<p>5. O garçom trouxe sushi para você. Você não pediu. Você pediu Sashimi.</p>
+						<p>6. Todos em seu grupo estão bebendo saquê. Você não gosta de saquê e prefere cerveja. O que oferece saquê, o que você faria?</p>
+						<p>7.  Normalmente você não bebe cerveja, mas hoje é um dia especial. Você terá algum.</p>
+						<p>8. Já foi perguntado se você come comida Japonesa com frequência. Bem, às vezes você faz, mas não com muita frequência.</p>
+
+					<h1>Aplicações Práticas</h1>
+						<p>A. 	Verifique os cardápios de diferentes tipos de restaurantes, discusta o que você vai comer e quantos e, em seguida, peça-os.</p>
+						<p>B. Seu grupo está organizando um evento. Em uma reunião organizacional, escolha voluntários para cada tarefa abaixo. Confirme quem está encarregado de cada tarefa e quem pode ajudar.</p>
+					<ol>
+						<li>fazer pôsteres</li>
+						<li>fazer cópias de pôsteres</li>
+						<li>limpe o quarto #101</li>
+						<li>pedir bento</li>
+						<li>comprar bebidas, lanches, etc.</li>
+						<li>comprar copos, pratos, e talheres</li>
+					</ol>
+					<!-------DIALOGOS--------->
+					<h1>Scripts de fita de perfuração</h1>
+						<p>Diálogo 1</p>
+							<p>A.</p>
+								<p>Sugestão: 手伝いますか。	Resposta: もちろんです。いつ手伝いましょうか。</p>
+								<p>Sugestão: しますか。	Resposta: もちろんです。いつしましょうか。</p>
+									<p>1. 行きますか。</p>
+									<p>2. 会いますか。</p>
+									<p>3. 紹介しますか。</p>
+									<p>4. 話しますか。</p>
+									<p>5. 電話しますか。</p>
+							<p>B. </p>
+								<p>Sugestão:   アプリ、使いますか。	Resposta: はい、このアプリを使います。</p>
+								<p>Sugestão: テレビ、買いますか。      Resposta: はい、このテレビを買います。</p>
+									<p>1. アパート、見ますか。</p>
+									<p>2. バイト、しますか。</p>
+									<p>3. まんが、読みますか。</p>
+									<p>4. 仕事、手伝いますか。</p>
+									<p>5. ファイル、コピーしますか。</p>
+							<p>C. </p>
+								<p>Sugestão: あれ、高いですか。	Resposta: はい、高いですから、買いません。</p>
+								<p>Sugestão: あれ、使いませんか。Resposta: はい、使いませんから、買いません。</p>
+									<p>1. あれ、不便ですか。</p>
+									<p>2. あれ、難しいですか。</p>
+									<p>3. あれ、ありますか。</p>
+									<p>4. あれ、古いですか。</p>
+									<p>5. あれ、できません。</p>
+
+						<p>Diálogo 2</p>
+							<p>A. </p>
+								<p>Sugestão: ちょっと、休みませんか。 Resposta: そうですね。皆さん、ちょっと休みましょう。</p>
+								<p>Sugestão: 昼ご飯を帰りませんか。	Resposta: そうですね。皆さん、帰りましょう。</p>
+									<p>1. エクセルを使いませんか。</p>
+									<p>2. 本田さんを手伝いませんか。</p>
+									<p>3. もっと、練習しませんか。</p>
+									<p>4. あした、出かけませんか。</p>
+									<p>5. 教科書を読みませんか。</p>
+							<p>B. </p>
+								<p>Sugestão: コーヒーや紅茶、飲みますか。</p>
+								<p>Resposta: いや、コーヒーも紅茶も飲みません。</p>
+								<p>Sugestão: ケーキやクッキー、作りますか。</p>
+								<p>Resposta: いや、ケーキもクーキーもつくりません。</p>
+									<p>1. パンやおにぎり、買いますか。</p>
+									<p>2. お茶や水、いりますか。</p>
+									<p>3. お菓子やパン、作りますか。</p>
+									<p>4. ジュースや牛乳、ありますか。</p>
+									<p>5. りんごやみかん、食べますか。</p>
+							<p>C. </p>
+								<p>Sugestão: ケーキですか。	Resposta: はい、ケーキを買います。</p>
+								<p>Sugestão:  本田さんですか。	Resposta: はい、本田さんが買います。</p>
+									<p>1. 新しいスマホですか。</p>
+									<p>2. あ/の傘ですか。</p>
+									<p>3. 大学のともだちですか。</p>
+									<p>4. 先生の本ですか。</p>
+									<p>5. 女の人ですか。</p>
+						<p>Diálogo 3</p>
+							<p>A. </p>
+								<p>Sugestão:  買います。	Resposta: 何を買いますか。</p>
+								<p>Sugestão: いります。	Resposta: 何がいりますか。</p>
+									<p>1. 見ます。</p>
+									<p>2. きらいです。</p>
+									<p>3. わかりません。</p>
+									<p>4. 書きます。</p>
+									<p>5. おいしいです.</p>
+							<p>B. </p>
+								<p>Sugestão: うどん、よく食べますねえ。 </p>
+								<p>Response: ええ、私はうどんが好きですから。</p>
+								<p>Cue: ゲーム、よくしますねえ。	</p>
+								<p>Response: ええ、私はゲームが好きですから</p>
+									<p>1. 日本語、よく勉強しますねえ。</p>
+									<p>2. ワイン、よく飲みますねえ。</p>
+									<p>3. リンゴやみかん、よく買いますねえ。</p>
+									<p>4. 日本のアニメ、よく見ますねえ。</p>
+									<p>5. あのアプリ、よく使いますねえ。</p>
+							<p>C.  Cue: 全部、見たいですか. </p>
+								<p>Response: いえ、これは見たいですけど、あれは見たくないです．</p>
+								<p>Cue: 全部読みたいですか </p>
+								<p>Response: いえ、これは読みたいですけど、あれは読みたくないです。</p>
+									<p>6. 全部、使いたいですか．</p>
+									<p>7. 全部、勉強したいですか．</p>
+									<p>8. 全部、聞きたいですか。</p>
+									<p>9. 全部、手伝いますか。</p>
+									<p>10. 全部、買いますか。</p>
+						<p>Dialogue 4</p>
+							<p>A. Cue: 五本ですね。	</p>
+								<p>Response: いえ、六本です。</p>
+								<p>Cue: 三つですね。	</p>
+								<p>Response: いえ、四つです。</p>
+									<p>1. 七本ですね。</p>
+									<p>2. 六つですね。</p>
+									<p>3. 十二本ですね。</p>
+									<p>4. 八つですね。</p>
+									<p>5. 十です。</p>
+							<p>B. Cue: さしみとてんぷらですか。</p>
+								<p>Response: はい、刺身を二つと天ぷらを三つ、ください。</p>
+								<p>Cue:リンゴとみかんですか。	</p>
+								<p>Response: はい、リンゴを二つと、みかんを三つください。</p>
+									<p>1. お弁当とサンドですか。</p>
+									<p>2. パンとおにぎりですか。</p>
+									<p>3. 水とウーロン茶ですか。</p>
+									<p>4. コーヒーとジュースですか。</p>
+									<p>5. リンゴのケーキと、イチゴのケーキですか。</p>
+
+						</table>
+		</article>						
+	</body>
+</html>
+<!-----Alteração[] Adicionar furigana sobre os kanjis--->
+
+
