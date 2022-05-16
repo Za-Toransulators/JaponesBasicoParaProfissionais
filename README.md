@@ -19,7 +19,7 @@ Este repositório trata-se da versão final de cada volume que será disponibili
 <b>· Gilson Junio Sales Andrade (gilsonjunio@ostradutores.online)</b>
 <br>- GitHub: https://github.com/GilsonEdit
 <br>- LinkedIn: https://www.linkedin.com/in/gilsonedit/
-<b>Ariane de Araújo Cunha (arianedearaujo@ostradutores.online)</b>
+<br><b>Ariane de Araújo Cunha (arianedearaujo@ostradutores.online)</b>
 <br>Lattes:http://lattes.cnpq.br/2674141624634080
-<b>Vitória Aparecida (vitoriaaparecida@ostradutores.online)</b>
+<br><b>Vitória Aparecida (vitoriaaparecida@ostradutores.online)</b>
 <br>LinkedIn:https://www.linkedin.com/in/vitoria-aparecida-59a32a204/
